@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs4mh41ray2l4"]
+
+[ext_resource type="Script" path="res://Scenes/Actors/Player.gd" id="1_mh6lr"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_mh6lr")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2.1)

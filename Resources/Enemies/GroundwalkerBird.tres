@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://tcd704npg8b5"]
+
+[ext_resource type="Resource" uid="uid://ciy0ieg3mqgag" path="res://Resources/Abilities/Attack.tres" id="1_7owjw"]
+[ext_resource type="Script" path="res://Resources/Templates/Enemy.gd" id="1_e4a2o"]
+
+[resource]
+script = ExtResource("1_e4a2o")
+name = "Groundwalker Bird"
+type = 4
+health = 5
+mana = 1
+strength = 1
+dexterity = 3
+constitution = 1
+intelligence = 1
+wisdom = 1
+charisma = 1
+abilities = Array[Resource]([ExtResource("1_7owjw")])
+resistances = {
+"acid": 0,
+"air": 0,
+"cold": 0,
+"crystal": 0,
+"darkness": 0,
+"earth": 15,
+"electricity": 0,
+"fire": 0,
+"flesh": 0,
+"heat": 0,
+"light": 0,
+"metal": 0,
+"mind": 0,
+"motion": 0,
+"soul": 0,
+"sound": 0,
+"time": 0,
+"void": 0,
+"water": 0,
+"wood": 0
+}

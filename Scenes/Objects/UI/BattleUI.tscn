@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnsl3bparmkji"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/UI/BattleUI.gd" id="1_d5d60"]
+[ext_resource type="PackedScene" uid="uid://d1n7heexvx6b2" path="res://Scenes/Objects/UI/AbilityUI.tscn" id="2_tmjp4"]
+
+[node name="BattleUI" type="Control"]
+custom_minimum_size = Vector2(720, 426)
+layout_mode = 3
+anchor_top = 0.667
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = 426.24
+offset_right = -360.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_d5d60")
+abilityObject = ExtResource("2_tmjp4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="AbilityUI" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_tmjp4")]
+layout_mode = 2

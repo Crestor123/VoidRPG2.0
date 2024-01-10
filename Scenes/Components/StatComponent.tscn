@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjc6jc6516g38"]
+
+[ext_resource type="Script" path="res://Scenes/Components/StatComponent.gd" id="1_tribq"]
+
+[node name="StatComponent" type="Node"]
+script = ExtResource("1_tribq")
+
+[node name="Buffs" type="Node" parent="."]

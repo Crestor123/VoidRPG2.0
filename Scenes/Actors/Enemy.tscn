@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhashr8eif2lp"]
+
+[ext_resource type="Script" path="res://Scenes/Actors/Enemy.gd" id="1_3navf"]
+[ext_resource type="PackedScene" uid="uid://dxfq3dm8e7g23" path="res://Scenes/Objects/HealthBar.tscn" id="2_u0duj"]
+[ext_resource type="PackedScene" uid="uid://b6iustp228h20" path="res://Scenes/Components/AbilityComponent.tscn" id="3_blctw"]
+[ext_resource type="PackedScene" uid="uid://bjc6jc6516g38" path="res://Scenes/Components/StatComponent.tscn" id="4_rr75k"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_3navf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="HealthBar" parent="." instance=ExtResource("2_u0duj")]
+
+[node name="AbilityComponent" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("3_blctw")]
+stats = NodePath("../StatComponent")
+
+[node name="StatComponent" parent="." instance=ExtResource("4_rr75k")]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://ciy0ieg3mqgag"]
+
+[ext_resource type="Script" path="res://Resources/Templates/Ability.gd" id="1_cj4ts"]
+[ext_resource type="Texture2D" uid="uid://cn6cd3ibj8cbk" path="res://Assets/Sprites/Earth.png" id="1_skv06"]
+
+[resource]
+script = ExtResource("1_cj4ts")
+name = "Attack"
+description = "Basic attack"
+icon = ExtResource("1_skv06")
+type = "attack"
+target = "one"
+mainStat = "strength"
+cost = 0
+baseDamage = 2
+multiplier = 1.0
+turns = 0
+element = "earth"
+additionalEffects = {}

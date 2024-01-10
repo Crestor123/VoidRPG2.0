@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://d112vtgesk8ac"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Entity.gd" id="1_3sr52"]
+[ext_resource type="Texture2D" uid="uid://ds8vr8hng0ujk" path="res://Assets/Sprites/Bird.png" id="1_7jny8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpdsc"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("1_7jny8")
+texture_filter = 0
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_5b5c6"]
+material = SubResource("StandardMaterial3D_gpdsc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1v5h"]
+size = Vector3(2, 2, 2)
+
+[node name="Entity" type="Node3D"]
+script = ExtResource("1_3sr52")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_5b5c6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_b1v5h")

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://n5bei5ouqvs2"]
+
+[ext_resource type="Texture2D" uid="uid://d2rnkpu5mcjox" path="res://Assets/Sprites/EmptySlot.png" id="1_g4vhn"]
+[ext_resource type="Script" path="res://Resources/Templates/Ability.gd" id="1_iv51o"]
+
+[resource]
+script = ExtResource("1_iv51o")
+name = "Defend"
+description = "Raise defense"
+icon = ExtResource("1_g4vhn")
+type = "buff"
+target = "self"
+mainStat = "constitution"
+cost = 0
+baseDamage = 2
+multiplier = 1.5
+turns = 1
+element = "earth"
+additionalEffects = {
+"resistances": {
+"all": 25
+}
+}
