@@ -4,8 +4,8 @@ extends Node
 
 @onready var TurnOrder = $TurnOrder
 
-var partyList = []
-var enemyList = []
+var partyList : Array[Node]
+var enemyList : Array[Node]
 var battleUI : Node = null
 var currentBattler : Node = null
 
@@ -23,7 +23,7 @@ func initialize(party, enemies, UI):
 		TurnOrder.add_child(newBattler)
 		TurnOrder.addTurn(newBattler)
 		newBattler.initialize(enemy)
-		enemyList.append(enemy)
+		enemyList.append(newBattler)
 		
 	TurnOrder.sortTurn()
 	
@@ -36,7 +36,7 @@ func startTurn(battler : Node):
 	if battler in partyList:
 		#The battler is a party member, initialize the battle UI
 		battleUI.updateAbilities(battler.abilities)
-	
+		#battleUI.cursor.initialize(enemyList)
 	battler.startTurn()
 	pass
 

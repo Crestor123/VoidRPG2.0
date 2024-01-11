@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://b6iustp228h20" path="res://Scenes/Components/AbilityComponent.tscn" id="3_blctw"]
 [ext_resource type="PackedScene" uid="uid://bjc6jc6516g38" path="res://Scenes/Components/StatComponent.tscn" id="4_rr75k"]
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node3D"]
 script = ExtResource("1_3navf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="."]
 
 [node name="HealthBar" parent="." instance=ExtResource("2_u0duj")]
 

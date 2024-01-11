@@ -1,11 +1,11 @@
-extends Node2D
+extends Node3D
 
 
 
 #A string pointing to a resource file containing enemy data
 @export var data : String
 
-@onready var sprite = $Sprite2D
+@onready var sprite = $Sprite3D
 @onready var abilities = $AbilityComponent
 @onready var stats = $StatComponent
 @onready var healthBar = $HealthBar
@@ -17,6 +17,7 @@ func initialize(data : Resource = null):
 	if data != null:
 		print("Resource for ", data.name, " given")
 		resource = data
+		sprite.texture = resource.sprite
 		stats.initialize(resource)
 		abilities.initialize(resource.abilities)
 	pass

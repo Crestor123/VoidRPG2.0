@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvfi7pb15066a"]
+
+[ext_resource type="Texture2D" uid="uid://cdaas5c1ib4pt" path="res://Assets/Sprites/CursorSingle.png" id="1_s2r2i"]
+[ext_resource type="Script" path="res://Scenes/Objects/UI/Cursor.gd" id="2_448fc"]
+
+[node name="Cursor" type="TextureRect"]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_s2r2i")
+flip_v = true
+script = ExtResource("2_448fc")

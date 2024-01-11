@@ -1,7 +1,9 @@
 extends Control
 
 @export var abilityObject : PackedScene
-@onready var abilityContainer = $MarginContainer/ScrollContainer/VBoxContainer
+@export var cursor : Node
+@onready var abilityContainer = $ColorRect/MarginContainer/ScrollContainer/VBoxContainer
+@onready var healthBarContainer = $ColorRect2/EnemyHealthBar
 
 signal chooseAbility(data, target)
 
