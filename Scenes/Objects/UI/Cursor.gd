@@ -17,17 +17,18 @@ func initialize(targetList : Array[Node]):
 	visible = true
 	
 	targets = targetList
-	for item in targets:
-		var button = Button.new()
-		add_child(button)
-		button.flat = true
-		button.global_position.x = item.global_position.x
-		button.global_position.y = item.global_position.y
-		button.size = item.sprite.get_size()
-		button.pressed.connect(self.buttonPressed)
+	#for item in targets:
+		#var button = Button.new()
+		#add_child(button)
+		#button.flat = true
+		#button.global_position.x = item.global_position.x
+		#button.global_position.y = item.global_position.y
+		#button.global_position = item.global_position
+		#button.size = item.sprite.get_size()
+		#button.pressed.connect(self.buttonPressed)
 		
 	currentTarget = targets[0]
-	moveCursor(get_child(0))
+	moveCursor(currentTarget)
 	pass
 
 func disable():
@@ -38,9 +39,10 @@ func disable():
 	targets.clear()
 	currentTarget = null
 
-func moveCursor(button : Node):
-	global_position.y = button.global_position.y
-	global_position.x = button.global_position.x
+func moveCursor(target : Node):
+	global_position = target.global_position
+	#global_position.y = button.global_position.y
+	#global_position.x = button.global_position.x
 	var index = 0
 	pass
 

@@ -25,6 +25,6 @@ func clear():
 	pass
 
 static func sort(a : Node, b : Node):
-	print(a, a.stats.getStat("dexterity"))
-	print(b, b.stats.getStat("dexterity"))
+	#print(a, a.stats.getStat("dexterity"))
+	#print(b, b.stats.getStat("dexterity"))
 	return a.stats.getStat("dexterity") > b.stats.getStat("dexterity")

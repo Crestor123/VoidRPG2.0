@@ -2,13 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dxfq3dm8e7g23" path="res://Scenes/Objects/HealthBar.tscn" id="1_nxp3x"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="EnemyHeathBar" type="MarginContainer"]
 offset_right = 720.0
 offset_bottom = 128.0
-theme_override_constants/separation = 8
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 8
@@ -16,17 +12,18 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
 text = "Enemy Name"
 
-[node name="HealthBar" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_nxp3x")]
+[node name="HealthBar" parent="VBoxContainer" instance=ExtResource("1_nxp3x")]
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 3

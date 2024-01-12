@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://0p6aaxrqi7ch"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/UI/EnemyButton.gd" id="1_nu01s"]
+
+[node name="EnemyButton" type="Button"]
+size_flags_horizontal = 3
+focus_mode = 0
+flat = true
+script = ExtResource("1_nu01s")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

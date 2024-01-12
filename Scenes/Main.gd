@@ -40,7 +40,7 @@ func entityInteract(type, data):
 func enterBattle(enemyData):
 	#Swap out UI
 	swapUI(BATTLE)
-	Battle.initialize(Party.get_children(), enemyData, currentUILayer)
+	Battle.initialize(Party.get_children(), enemyData)
 	Battle.battle()
 	pass
 

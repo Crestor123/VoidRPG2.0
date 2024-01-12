@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqgtlex7djvi"]
+[gd_scene load_steps=12 format=3 uid="uid://dqgtlex7djvi"]
 
 [ext_resource type="PackedScene" uid="uid://cs4mh41ray2l4" path="res://Scenes/Actors/Player.tscn" id="1_02n11"]
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_mmrmv"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://d112vtgesk8ac" path="res://Scenes/Objects/Entity.tscn" id="5_d32gq"]
 [ext_resource type="Resource" uid="uid://tcd704npg8b5" path="res://Resources/Enemies/GroundwalkerBird.tres" id="6_5sgyr"]
 [ext_resource type="PackedScene" uid="uid://cnsl3bparmkji" path="res://Scenes/Objects/UI/BattleUI.tscn" id="6_h7rcj"]
-[ext_resource type="PackedScene" uid="uid://bvfi7pb15066a" path="res://Scenes/Objects/UI/Cursor.tscn" id="7_ma8rj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dda42"]
 albedo_color = Color(0.247059, 0.247059, 0.247059, 1)
@@ -26,7 +25,8 @@ script = ExtResource("1_mmrmv")
 [node name="PartyMember" parent="PartyMembers" instance=ExtResource("2_7irq2")]
 data = ExtResource("3_piwwk")
 
-[node name="Battle" parent="." instance=ExtResource("2_vrged")]
+[node name="Battle" parent="." node_paths=PackedStringArray("battleUI") instance=ExtResource("2_vrged")]
+battleUI = NodePath("../UILayer/BattleUI")
 
 [node name="CurrentScene" type="Node" parent="."]
 
@@ -34,14 +34,8 @@ data = ExtResource("3_piwwk")
 
 [node name="MovementUI" parent="UILayer" instance=ExtResource("1_orfka")]
 
-[node name="BattleUI" parent="UILayer" node_paths=PackedStringArray("cursor") instance=ExtResource("6_h7rcj")]
+[node name="BattleUI" parent="UILayer" instance=ExtResource("6_h7rcj")]
 visible = false
-cursor = NodePath("Cursor")
-
-[node name="Cursor" parent="UILayer/BattleUI" instance=ExtResource("7_ma8rj")]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_2ucn6")
@@ -55,5 +49,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.1, 1)
 
 [node name="Entity" parent="Entities" instance=ExtResource("5_d32gq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -3)
-data = Array[Resource]([ExtResource("6_5sgyr")])
+data = Array[Resource]([ExtResource("6_5sgyr"), ExtResource("6_5sgyr")])
 type = "enemy"

@@ -1,18 +1,17 @@
 extends Node
 
-@export var enemyScene: PackedScene
+@export var enemyScene : PackedScene
+@export var battleUI : Node
 
 @onready var TurnOrder = $TurnOrder
 
 var partyList : Array[Node]
 var enemyList : Array[Node]
-var battleUI : Node = null
 var currentBattler : Node = null
 
-func initialize(party, enemies, UI):
+func initialize(party, enemies):
 	#Create battlers for each member of the party and enemy
 	#Populate the turn order
-	battleUI = UI
 	
 	for member in party:
 		TurnOrder.addTurn(member)
@@ -25,6 +24,7 @@ func initialize(party, enemies, UI):
 		newBattler.initialize(enemy)
 		enemyList.append(newBattler)
 		
+	battleUI.updateEnemies(enemyList)
 	TurnOrder.sortTurn()
 	
 func battle():
