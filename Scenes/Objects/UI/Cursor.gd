@@ -41,9 +41,12 @@ func disable():
 
 func moveCursor(target : Node):
 	global_position = target.global_position
+	global_position.x += (target.size.x / 2) - (size.x / 2)
+	global_position.y += target.size.y
 	#global_position.y = button.global_position.y
 	#global_position.x = button.global_position.x
-	var index = 0
+	#var index = 0
+	currentTarget = target
 	pass
 
 func buttonPressed():

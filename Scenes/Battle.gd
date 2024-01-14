@@ -9,6 +9,8 @@ var partyList : Array[Node]
 var enemyList : Array[Node]
 var currentBattler : Node = null
 
+signal initialized
+
 func initialize(party, enemies):
 	#Create battlers for each member of the party and enemy
 	#Populate the turn order
@@ -25,11 +27,24 @@ func initialize(party, enemies):
 		enemyList.append(newBattler)
 		
 	battleUI.updateEnemies(enemyList)
+	#Small delay to allow UI to initialize
+	await get_tree().create_timer(0.5).timeout
+	battleUI.chooseAbility.connect(useAbility)
 	TurnOrder.sortTurn()
+	
+	return
 	
 func battle():
 	currentBattler = TurnOrder.nextBattler()
 	startTurn(currentBattler)
+	if currentBattler in partyList:
+		await battleUI.chooseAbility
+	print("Ending turn")
+	pass
+
+func useAbility(ability, target):
+	print(currentBattler, " using ", ability, " on ", target)
+	currentBattler.abilities.useAbility(ability, target)
 	pass
 
 func startTurn(battler : Node):

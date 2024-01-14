@@ -9,7 +9,7 @@ extends Control
 @onready var healthBarContainer = $ColorRect2/HealthBarContainer
 @onready var buttonContainer = $ButtonContainer
 
-signal chooseAbility(data, target)
+signal chooseAbility(ability, target)
 
 func updateEnemies(enemyList : Array[Node]):
 	#Clear out any existing health bars
@@ -27,24 +27,27 @@ func updateEnemies(enemyList : Array[Node]):
 		
 	#If there is more than one enemy, show the cursor
 	#Create buttons to move the cursor
+	#Initialize an data value that is passed by the button when pressed
 	if enemyList.size() > 1:
-		cursor.visible = true
-		cursor.initialize(healthBarContainer.get_children())
+		#cursor.visible = true
 		
 		for item in enemyList:
 			var newButton = enemyButton.instantiate()
 			buttonContainer.add_child(newButton)
 			newButton.data = item.get_index()
+			newButton.target = item
 			newButton.buttonPressed.connect(cursorButton)
+			
+		#cursor.initialize(healthBarContainer.get_children())
+		#cursorButton(0)
 		
-
 func updateAbilities(abilityComponent : Node):
 	#Clear out the ability container
 	for item in abilityContainer.get_children():
 		item.queue_free()
 	
 	#Connect the ability signal to the party member
-	chooseAbility.connect(abilityComponent.useAbility)
+	#chooseAbility.connect(abilityComponent.useAbility)
 	
 	#Populate the list of abilities with the abilities given
 	for item in abilityComponent.get_children():
@@ -54,9 +57,13 @@ func updateAbilities(abilityComponent : Node):
 		ability.buttonPressed.connect(abilityTransmit)
 		ability.initialize(item)
 	pass
+	
+	#If there is more than one enemy, show the target cursor
+	cursor.visible = true
+	cursorButton(0)
 
 func abilityTransmit(ability : Node):
-	chooseAbility.emit(ability, null)
+	chooseAbility.emit(ability, buttonContainer.get_child(cursor.currentTarget.get_index()).target)
 	pass
 
 func cursorButton(buttonData : int):

@@ -65,7 +65,8 @@ func initialize(resource = null):
 		for item in resistances:
 			resistances[item] = data.resistances[item]
 			
-func takeDamage():
+func takeDamage(value, type):
+	print("Taking ", value, " damage of ", type, " type")
 	pass
 	
 func addBuff():
