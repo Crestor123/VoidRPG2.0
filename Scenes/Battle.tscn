@@ -10,3 +10,6 @@ enemyScene = ExtResource("2_kttnq")
 
 [node name="TurnOrder" type="Node" parent="."]
 script = ExtResource("3_vulbm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5

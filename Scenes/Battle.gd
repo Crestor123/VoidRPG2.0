@@ -4,6 +4,7 @@ extends Node
 @export var battleUI : Node
 
 @onready var TurnOrder = $TurnOrder
+@onready var timer = $Timer
 
 var partyList : Array[Node]
 var enemyList : Array[Node]
@@ -28,7 +29,8 @@ func initialize(party, enemies):
 		
 	battleUI.updateEnemies(enemyList)
 	#Small delay to allow UI to initialize
-	await get_tree().create_timer(0.5).timeout
+	timer.start()
+	await timer.timeout
 	battleUI.chooseAbility.connect(useAbility)
 	TurnOrder.sortTurn()
 	

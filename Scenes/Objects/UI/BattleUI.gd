@@ -23,6 +23,8 @@ func updateEnemies(enemyList : Array[Node]):
 	for item in enemyList:
 		var newHealthBar = enemyHealthObject.instantiate()
 		healthBarContainer.add_child(newHealthBar)
+		#newHealthBar.initialize(100)
+		item.updateHealthBar.connect(newHealthBar.healthBar.setBar)
 		pass
 		
 	#If there is more than one enemy, show the cursor

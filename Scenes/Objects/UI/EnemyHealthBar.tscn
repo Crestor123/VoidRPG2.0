@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw0yumr8olvgf"]
+[gd_scene load_steps=3 format=3 uid="uid://dw0yumr8olvgf"]
 
+[ext_resource type="Script" path="res://Scenes/Objects/UI/EnemyHealthBar.gd" id="1_7lf45"]
 [ext_resource type="PackedScene" uid="uid://dxfq3dm8e7g23" path="res://Scenes/Objects/HealthBar.tscn" id="1_nxp3x"]
 
 [node name="EnemyHeathBar" type="MarginContainer"]
@@ -11,6 +12,7 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
+script = ExtResource("1_7lf45")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2

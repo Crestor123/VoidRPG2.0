@@ -2,6 +2,8 @@ extends Node
 
 @onready var Buffs = $Buffs
 
+signal healthZero
+
 var stats = {
 	"health": 0, 
 	"mana": 0, 
@@ -66,7 +68,14 @@ func initialize(resource = null):
 			resistances[item] = data.resistances[item]
 			
 func takeDamage(value, type):
-	print("Taking ", value, " damage of ", type, " type")
+	value -= floor(value * float((100 - resistances[type]) / 100))
+	#print("Taking ", value, " damage of ", type, " type")
+	tempStats.health -= value
+	if tempStats.health <= 0:
+		tempStats.health = 0
+		healthZero.emit()
+	
+	get_parent().updateHealthBar.emit(100 * (tempStats.health / stats.health))
 	pass
 	
 func addBuff():

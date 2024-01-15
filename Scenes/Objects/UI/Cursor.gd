@@ -17,16 +17,7 @@ func initialize(targetList : Array[Node]):
 	visible = true
 	
 	targets = targetList
-	#for item in targets:
-		#var button = Button.new()
-		#add_child(button)
-		#button.flat = true
-		#button.global_position.x = item.global_position.x
-		#button.global_position.y = item.global_position.y
-		#button.global_position = item.global_position
-		#button.size = item.sprite.get_size()
-		#button.pressed.connect(self.buttonPressed)
-		
+
 	currentTarget = targets[0]
 	moveCursor(currentTarget)
 	pass

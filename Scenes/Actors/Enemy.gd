@@ -9,6 +9,8 @@ extends Node2D
 @onready var stats = $StatComponent
 @onready var healthBar = $HealthBar
 
+signal updateHealthBar(percentage)
+
 var isActive = false
 var resource : Resource
 
@@ -17,6 +19,7 @@ func initialize(data : Resource = null):
 		print("Resource for ", data.name, " given")
 		resource = data
 		stats.initialize(resource)
+		stats.healthZero.connect(die)
 		abilities.initialize(resource.abilities)
 	pass
 	
@@ -31,14 +34,6 @@ func chooseAbility():
 func chooseTarget():
 	pass
 	
-func useAbility():
-	pass
-	
-func takeDamage():
-	pass
-	
-func addBuff():
-	pass
-	
 func die():
+	print(self, " is dead")
 	pass
