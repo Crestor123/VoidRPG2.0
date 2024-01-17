@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm0m14t6yfmmx"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/UI/PartyHealth.gd" id="1_6dgel"]
+[ext_resource type="PackedScene" uid="uid://m0p4u7s6ya5f" path="res://Scenes/Objects/UI/HealthUI.tscn" id="1_brl1c"]
+
+[node name="PartyHealth" type="ColorRect"]
+offset_right = 720.0
+offset_bottom = 128.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_6dgel")
+healthBar = ExtResource("1_brl1c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(720, 128)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EnemyHeathBar" parent="HBoxContainer" instance=ExtResource("1_brl1c")]
+layout_mode = 2

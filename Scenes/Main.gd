@@ -7,22 +7,32 @@ extends Node3D
 @onready var Grid = $GridMap
 @onready var Entities = $Entities
 
-enum {MOVEMENT, BATTLE}
+enum {MOVEMENT, BATTLE, HEALTH}
 var currentUILayer : Node = null
+var movementUI : Node = null
+var battleUI : Node = null
+var healthUI : Node = null
 
 func _ready():
 	for item in Entities.get_children():
 		item.interacting.connect(entityInteract)
-	connectUI()
 	
 	for member in Party.get_children():
 		member.initialize()
+		
+	connectUI()
 	pass
 
 func connectUI():
-	swapUI(MOVEMENT)
-	UILayer.get_child(0).buttonPressed.connect(Player.move)
-	UILayer.get_child(0).buttonPressed.connect(buttonPressed)
+	movementUI = UILayer.get_child(0)
+	battleUI = UILayer.get_child(1)
+	healthUI = UILayer.get_child(2)
+	
+	swapUI(movementUI)
+	UILayer.get_child(MOVEMENT).buttonPressed.connect(Player.move)
+	UILayer.get_child(MOVEMENT).buttonPressed.connect(buttonPressed)
+	
+	healthUI.initialize(Party.get_children())
 	pass
 	
 func buttonPressed(button : String):
@@ -39,13 +49,16 @@ func entityInteract(type, data):
 
 func enterBattle(enemyData):
 	#Swap out UI
-	swapUI(BATTLE)
+	swapUI(battleUI)
 	await Battle.initialize(Party.get_children(), enemyData)
 	Battle.battle()
 	pass
 
-func swapUI(layer : int):
+func swapUI(layer : Node):
 	for item in UILayer.get_children():
+		if item == healthUI:
+			continue
 		item.visible = false
-	currentUILayer = UILayer.get_child(layer)
+	#currentUILayer = UILayer.get_child(layer)
+	currentUILayer = layer
 	currentUILayer.visible = true

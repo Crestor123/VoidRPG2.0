@@ -7,7 +7,7 @@ extends Node2D
 
 @onready var abilities = $AbilityComponent
 @onready var stats = $StatComponent
-@onready var healthBar = $HealthBar
+#@onready var healthBar = $HealthBar
 @onready var timer = $Timer
 
 signal updateHealthBar(percentage)
@@ -19,10 +19,10 @@ var resource : Resource
 var targets = [Node]
 var allies = [Node]
 
-func initialize(data : Resource = null):
-	if data != null:
-		print("Resource for ", data.name, " given")
-		resource = data
+func initialize(setResource : Resource = null):
+	if setResource != null:
+		print("Resource for ", setResource.name, " given")
+		resource = setResource
 		stats.initialize(resource)
 		stats.healthZero.connect(die)
 		abilities.initialize(resource.abilities)

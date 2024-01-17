@@ -1,10 +1,10 @@
 extends Control
 
-@onready var Select = $Background/CenterContainer/HBoxContainer/VBoxContainer/Select
-@onready var UpButton = $Background/CenterContainer/HBoxContainer/VBoxContainer/Up
-@onready var LeftButton = $Background/CenterContainer/HBoxContainer/Left
-@onready var RightButton = $Background/CenterContainer/HBoxContainer/Right
-@onready var DownButton = $Background/CenterContainer/HBoxContainer/VBoxContainer/Down
+@onready var Select = $CenterContainer/HBoxContainer/VBoxContainer/Select
+@onready var UpButton = $CenterContainer/HBoxContainer/VBoxContainer/Up
+@onready var LeftButton = $CenterContainer/HBoxContainer/Left
+@onready var RightButton = $CenterContainer/HBoxContainer/Right
+@onready var DownButton = $CenterContainer/HBoxContainer/VBoxContainer/Down
 
 signal buttonPressed(button : String)
 

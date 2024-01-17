@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnsl3bparmkji"]
+[gd_scene load_steps=6 format=3 uid="uid://grvkiid0xehe"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/UI/BattleUI.gd" id="1_d5d60"]
 [ext_resource type="PackedScene" uid="uid://d1n7heexvx6b2" path="res://Scenes/Objects/UI/AbilityUI.tscn" id="2_tmjp4"]
-[ext_resource type="PackedScene" uid="uid://dw0yumr8olvgf" path="res://Scenes/Objects/UI/EnemyHealthBar.tscn" id="3_jbbqa"]
+[ext_resource type="PackedScene" uid="uid://m0p4u7s6ya5f" path="res://Scenes/Objects/UI/HealthUI.tscn" id="3_88dop"]
 [ext_resource type="PackedScene" uid="uid://bvfi7pb15066a" path="res://Scenes/Objects/UI/Cursor.tscn" id="4_1mbpt"]
 [ext_resource type="PackedScene" uid="uid://0p6aaxrqi7ch" path="res://Scenes/Objects/UI/EnemyButton.tscn" id="4_ng1t1"]
 
@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d5d60")
 abilityObject = ExtResource("2_tmjp4")
-enemyHealthObject = ExtResource("3_jbbqa")
+enemyHealthObject = ExtResource("3_88dop")
 enemyButton = ExtResource("4_ng1t1")
 
 [node name="ColorRect" type="ColorRect" parent="."]

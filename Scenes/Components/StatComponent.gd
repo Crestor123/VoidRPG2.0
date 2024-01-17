@@ -81,11 +81,14 @@ func takeDamage(value, type):
 		tempStats.health = 0
 		healthZero.emit()
 	
-	get_parent().updateHealthBar.emit(100 * (tempStats.health / stats.health))
+	get_parent().updateHealthBar.emit(getHealthPercent())
 	pass
 	
 func addBuff():
 	pass
+
+func getHealthPercent() -> float:
+	return 100 * (tempStats.health / stats.health)
 
 func getStat(stat : String):
 	if stat in stats:
