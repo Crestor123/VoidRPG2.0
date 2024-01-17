@@ -11,3 +11,6 @@ script = ExtResource("1_3navf")
 stats = NodePath("../StatComponent")
 
 [node name="StatComponent" parent="." instance=ExtResource("4_rr75k")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2

@@ -45,6 +45,7 @@ func updateEnemies(enemyList : Array[Node]):
 		
 func updateAbilities(abilityComponent : Node):
 	#Clear out the ability container
+	abilityContainer.hide()
 	for item in abilityContainer.get_children():
 		item.queue_free()
 	
@@ -59,10 +60,18 @@ func updateAbilities(abilityComponent : Node):
 		ability.buttonPressed.connect(abilityTransmit)
 		ability.initialize(item)
 	pass
+	abilityContainer.show()
 	
 	#If there is more than one enemy, show the target cursor
 	cursor.visible = true
-	cursorButton(0)
+	if !cursor.currentTarget:
+		cursorButton(0)
+
+func hideAbilities():
+	abilityContainer.hide()
+	cursor.hide()
+	for item in abilityContainer.get_children():
+		item.queue_free()
 
 func abilityTransmit(ability : Node):
 	chooseAbility.emit(ability, buttonContainer.get_child(cursor.currentTarget.get_index()).target)

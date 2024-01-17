@@ -9,11 +9,13 @@ extends Node2D
 var memberName : String
 var isActive = false
 
+signal updateHealthBar(value)
+
 func initialize():
 	name = data.name
 	stats.initialize(data)
 	abilities.initialize(data.abilities)
 
-func startTurn():
+func startTurn(_turnCount : int):
 	isActive = true
 	print(self, " is active!")

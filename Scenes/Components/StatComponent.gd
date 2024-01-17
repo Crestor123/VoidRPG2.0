@@ -68,9 +68,15 @@ func initialize(resource = null):
 			resistances[item] = data.resistances[item]
 			
 func takeDamage(value, type):
-	value -= floor(value * float((100 - resistances[type]) / 100))
+	#print("initial damage: ", value)
+	#print("resistance: ", resistances[type])
+	var damageReduction = (float(resistances[type])) / 100
+	#print("damage reduction: ", damageReduction)
+	#value -= floor(value * float((100 - resistances[type]) / 100))
+	value -= floor(damageReduction * value)
 	#print("Taking ", value, " damage of ", type, " type")
 	tempStats.health -= value
+	print(tempStats.health, " left")
 	if tempStats.health <= 0:
 		tempStats.health = 0
 		healthZero.emit()
