@@ -9,7 +9,7 @@
 script = ExtResource("1_06604")
 name = "Test"
 sprite = ExtResource("4_y1m3n")
-health = 10
+health = 25
 mana = 10
 strength = 2
 dexterity = 5

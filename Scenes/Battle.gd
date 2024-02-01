@@ -7,7 +7,9 @@ extends Node
 @onready var timer = $Timer
 
 var partyList : Array[Node]
+var defeatedParty : Array[Node]
 var enemyList : Array[Node]
+var defeatedEnemies : Array[Node]
 var currentBattler : Node = null
 var turnCount = 0
 
@@ -20,6 +22,7 @@ func initialize(party, enemies):
 	for member in party:
 		TurnOrder.addTurn(member)
 		partyList.append(member)
+		member.dead.connect(battlerDead)
 	
 	for enemy in enemies:
 		var newBattler = enemyScene.instantiate()
@@ -28,6 +31,7 @@ func initialize(party, enemies):
 		TurnOrder.addTurn(newBattler)
 		newBattler.initialize(enemy)
 		enemyList.append(newBattler)
+		newBattler.dead.connect(battlerDead)
 	
 	for enemy in enemyList:
 		enemy.allies = enemyList
@@ -58,7 +62,17 @@ func battle():
 		print("Ending turn")
 		battleUI.hideAbilities()
 		turnCount += 1
-		pass
+	
+	#When battle is over, emit a signal back to main
+	if partyList.is_empty():
+		#For now, just reboot the scene
+		print("Game over")
+		
+	if enemyList.is_empty():
+		#Tally XP for each enemy defeated
+		#Abilities should have already tallied their own XP (?)
+		#Delete the entity from the map
+		print("You won!")
 
 func useAbility(ability, target):
 	print(currentBattler, " using ", ability, " on ", target)
@@ -76,5 +90,22 @@ func startTurn(battler : Node):
 func endTurn():
 	pass
 
-func battlerDead():
+func battlerDead(battler : Node):
+	print(battler, " is dead")
+	var partyAlive = false
+	var enemyAlive = false
+	
+	#Remove the battler from the turn order
+	TurnOrder.removeBattler(battler)
+	
+	#Add the battler to the proper defeated list and remove it from its original list
+	if battler in partyList:
+		defeatedParty.append(battler)
+		partyList.erase(battler)
+	else:
+		#If it's an enemy, remove its health bar(?)
+		#Disconnect the enemy's button so that it can't be targeted
+		battleUI.removeEnemy(battler)
+		defeatedEnemies.append(battler)
+		enemyList.erase(battler)
 	pass

@@ -12,8 +12,10 @@ extends Node2D
 
 signal updateHealthBar(percentage)
 signal turnFinished
+signal dead(data)
 
-var isActive = false
+var isActive : bool = false
+var alive : bool = true
 var resource : Resource
 
 var targets = [Node]
@@ -53,5 +55,7 @@ func chooseTarget(ability : Node):
 	pass
 	
 func die():
-	print(self, " is dead")
+	#print(self, " is dead")
+	alive = false
+	dead.emit(self)
 	pass

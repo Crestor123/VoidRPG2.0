@@ -19,7 +19,10 @@ func nextBattler():
 		currentBattler = 0
 	return turnOrder[currentBattler]
 	
-	pass
+func removeBattler(battler : Node):
+	if turnOrder[currentBattler] == battler:
+		nextBattler()
+	turnOrder.erase(battler)
 	
 func clear():
 	pass
