@@ -6,6 +6,8 @@ class_name PartyMember
 
 @export var sprite : Texture2D
 
+@export var level : int
+
 @export var health : int
 @export var mana : int
 @export var strength : int

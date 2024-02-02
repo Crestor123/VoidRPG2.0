@@ -6,6 +6,9 @@ extends Node2D
 @onready var abilities = $AbilityComponent
 @onready var stats = $StatComponent
 
+var experience : int = 0
+var xpToLevel : int = 0
+
 var memberName : String
 var isActive : bool = false
 var alive : bool = true
@@ -18,7 +21,18 @@ func initialize():
 	stats.initialize(data)
 	abilities.initialize(data.abilities)
 	
+	xpToLevel = xpToNextLevel(stats.level)
 	stats.healthZero.connect(die)
+
+func xpToNextLevel(level : int) -> int:
+	#returns the amount of experience needed to level up
+	var exponent = 1.5;
+	var baseXP = 30;
+	return round(baseXP * (pow(level, exponent)));
+	
+func levelUp():
+	#Increase stats, set xpToLevel
+	pass
 
 func startTurn(_turnCount : int):
 	isActive = true

@@ -4,6 +4,8 @@ extends Node
 
 signal healthZero
 
+var level : int = 1
+
 var stats = {
 	"health": 0, 
 	"mana": 0, 
@@ -56,6 +58,7 @@ func initialize(resource = null):
 	if data != null:
 		stats.health = data.health
 		tempStats.health = data.health
+		level = data.level
 		stats.mana = data.mana
 		stats.strength = data.strength
 		stats.dexterity = data.dexterity

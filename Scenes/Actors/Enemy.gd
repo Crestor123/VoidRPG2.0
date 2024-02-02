@@ -14,6 +14,8 @@ signal updateHealthBar(percentage)
 signal turnFinished
 signal dead(data)
 
+var enemyName : String
+
 var isActive : bool = false
 var alive : bool = true
 var resource : Resource
@@ -25,6 +27,7 @@ func initialize(setResource : Resource = null):
 	if setResource != null:
 		print("Resource for ", setResource.name, " given")
 		resource = setResource
+		enemyName = resource.name
 		stats.initialize(resource)
 		stats.healthZero.connect(die)
 		abilities.initialize(resource.abilities)

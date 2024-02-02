@@ -28,7 +28,7 @@ func updateEnemies(enemyList : Array[Node]):
 	for item in enemies:
 		var newHealthBar = enemyHealthObject.instantiate()
 		healthBarContainer.add_child(newHealthBar)
-		#newHealthBar.initialize(100)
+		newHealthBar.initialize(item.enemyName, 100)
 		item.updateHealthBar.connect(newHealthBar.healthBar.setBar)
 		pass
 		

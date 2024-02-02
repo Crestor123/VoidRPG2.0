@@ -4,6 +4,8 @@ class_name Enemy
 
 @export var name : String
 
+@export var level : int
+
 @export var sprite : Texture2D
 
 @export_enum ("fire", "light", "heat", "electricity", "earth", "metal", 
