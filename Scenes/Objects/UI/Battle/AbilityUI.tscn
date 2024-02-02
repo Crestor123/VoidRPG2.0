@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1n7heexvx6b2"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://be4gw0ymtrdkq" path="res://Assets/Sprites/Close.png" id="1_7dfyd"]
-[ext_resource type="Script" path="res://Scenes/Objects/UI/AbilityUI.gd" id="1_t7mig"]
+[ext_resource type="Script" path="res://Scenes/Objects/UI/Battle/AbilityUI.gd" id="1_t7mig"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vqeqi"]
 font_size = 24

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqgtlex7djvi"]
+[gd_scene load_steps=13 format=3 uid="uid://bjqrsltclqk08"]
 
 [ext_resource type="PackedScene" uid="uid://cs4mh41ray2l4" path="res://Scenes/Actors/Player.tscn" id="1_02n11"]
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_mmrmv"]
@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://dfwyi62eual2" path="res://Resources/PartyMembers/Test.tres" id="3_piwwk"]
 [ext_resource type="PackedScene" uid="uid://d112vtgesk8ac" path="res://Scenes/Objects/Entity.tscn" id="5_d32gq"]
 [ext_resource type="Resource" uid="uid://tcd704npg8b5" path="res://Resources/Enemies/GroundwalkerBird.tres" id="6_5sgyr"]
-[ext_resource type="PackedScene" uid="uid://grvkiid0xehe" path="res://Scenes/Objects/UI/BattleUI.tscn" id="6_h7rcj"]
+[ext_resource type="PackedScene" uid="uid://c0u2nhom40bs5" path="res://Scenes/Objects/UI/Battle/BattleUI.tscn" id="6_h7rcj"]
 [ext_resource type="PackedScene" uid="uid://bm0m14t6yfmmx" path="res://Scenes/Objects/UI/PartyHealth.tscn" id="7_vbsi2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dda42"]

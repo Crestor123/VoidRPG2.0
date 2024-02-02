@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://grvkiid0xehe"]
+[gd_scene load_steps=6 format=3 uid="uid://c0u2nhom40bs5"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/UI/BattleUI.gd" id="1_d5d60"]
-[ext_resource type="PackedScene" uid="uid://d1n7heexvx6b2" path="res://Scenes/Objects/UI/AbilityUI.tscn" id="2_tmjp4"]
-[ext_resource type="PackedScene" uid="uid://m0p4u7s6ya5f" path="res://Scenes/Objects/UI/HealthUI.tscn" id="3_88dop"]
-[ext_resource type="PackedScene" uid="uid://bvfi7pb15066a" path="res://Scenes/Objects/UI/Cursor.tscn" id="4_1mbpt"]
-[ext_resource type="PackedScene" uid="uid://0p6aaxrqi7ch" path="res://Scenes/Objects/UI/EnemyButton.tscn" id="4_ng1t1"]
+[ext_resource type="Script" path="res://Scenes/Objects/UI/Battle/BattleUI.gd" id="1_a4eku"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/UI/Battle/AbilityUI.tscn" id="2_ug7s7"]
+[ext_resource type="PackedScene" uid="uid://m0p4u7s6ya5f" path="res://Scenes/Objects/UI/HealthUI.tscn" id="3_clped"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/UI/Battle/EnemyButton.tscn" id="4_uu45p"]
+[ext_resource type="PackedScene" uid="uid://bvfi7pb15066a" path="res://Scenes/Objects/UI/Cursor.tscn" id="5_mhlfh"]
 
 [node name="BattleUI" type="Control"]
 layout_mode = 3
@@ -13,10 +13,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_d5d60")
-abilityObject = ExtResource("2_tmjp4")
-enemyHealthObject = ExtResource("3_88dop")
-enemyButton = ExtResource("4_ng1t1")
+script = ExtResource("1_a4eku")
+abilityObject = ExtResource("2_ug7s7")
+enemyHealthObject = ExtResource("3_clped")
+enemyButton = ExtResource("4_uu45p")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(720, 426)
@@ -68,7 +68,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Cursor" parent="." instance=ExtResource("4_1mbpt")]
+[node name="Cursor" parent="." instance=ExtResource("5_mhlfh")]
 visible = false
 layout_mode = 0
 
