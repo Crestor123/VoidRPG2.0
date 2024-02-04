@@ -3,7 +3,7 @@ extends Node3D
 @export var data : Array[Resource]
 @export_enum ("enemy") var type : String
 
-signal interacting(type, data)
+signal interacting(ID, type, data)
 
 func initialize():
 	for item in data:
@@ -14,5 +14,5 @@ func initialize():
 	pass
 
 func interact():
-	interacting.emit(type, data)
+	interacting.emit(self, type, data)
 	pass

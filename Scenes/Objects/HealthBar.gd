@@ -1,5 +1,8 @@
 extends TextureProgressBar
 
+func initBar(percentage):
+	value = percentage
+
 func setBar(percentage):
 	if percentage < 0: return
 	var tween = get_tree().create_tween()

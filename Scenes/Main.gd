@@ -7,11 +7,14 @@ extends Node3D
 @onready var Grid = $GridMap
 @onready var Entities = $Entities
 
-enum {MOVEMENT, BATTLE, HEALTH}
+enum {MOVEMENT, BATTLE, HEALTH, EXPERIENCE}
 var currentUILayer : Node = null
 var movementUI : Node = null
 var battleUI : Node = null
 var healthUI : Node = null
+var experienceUI : Node = null
+
+var interactingEntity : Node = null
 
 func _ready():
 	for item in Entities.get_children():
@@ -27,6 +30,7 @@ func connectUI():
 	movementUI = UILayer.get_child(0)
 	battleUI = UILayer.get_child(1)
 	healthUI = UILayer.get_child(2)
+	experienceUI = UILayer.get_child(3)
 	
 	swapUI(movementUI)
 	UILayer.get_child(MOVEMENT).buttonPressed.connect(Player.move)
@@ -39,8 +43,9 @@ func buttonPressed(button : String):
 	print(button, " pressed")
 	pass
 
-func entityInteract(type, data):
+func entityInteract(ID, type, data):
 	print(type, " ", data)
+	interactingEntity = ID
 	
 	if type == "enemy":
 		#Start the battle using the enemy data
@@ -51,7 +56,17 @@ func enterBattle(enemyData):
 	#Swap out UI
 	swapUI(battleUI)
 	await Battle.initialize(Party.get_children(), enemyData)
+	Battle.victory.connect(winBattle)
 	Battle.battle()
+	pass
+
+func winBattle(defeatedEnemies):
+	#Remove entity from field
+	interactingEntity.queue_free()
+	#Swap UI
+	swapUI(experienceUI)
+	#Calculate the experience gained
+	experienceUI.initialize(Party.get_children(), 1)
 	pass
 
 func swapUI(layer : Node):

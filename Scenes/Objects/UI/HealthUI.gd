@@ -5,4 +5,4 @@ extends MarginContainer
 
 func initialize(nameLabel : String, healthPercent : int):
 	label.text = nameLabel
-	healthBar.setBar(healthPercent)
+	healthBar.initBar(healthPercent)

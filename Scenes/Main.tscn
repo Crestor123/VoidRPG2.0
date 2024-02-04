@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjqrsltclqk08"]
+[gd_scene load_steps=14 format=3 uid="uid://bjqrsltclqk08"]
 
 [ext_resource type="PackedScene" uid="uid://cs4mh41ray2l4" path="res://Scenes/Actors/Player.tscn" id="1_02n11"]
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_mmrmv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://tcd704npg8b5" path="res://Resources/Enemies/GroundwalkerBird.tres" id="6_5sgyr"]
 [ext_resource type="PackedScene" uid="uid://c0u2nhom40bs5" path="res://Scenes/Objects/UI/Battle/BattleUI.tscn" id="6_h7rcj"]
 [ext_resource type="PackedScene" uid="uid://bm0m14t6yfmmx" path="res://Scenes/Objects/UI/PartyHealth.tscn" id="7_vbsi2"]
+[ext_resource type="PackedScene" uid="uid://dpclrg0pcfjij" path="res://Scenes/Objects/UI/ExperienceUI.tscn" id="8_fieyf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dda42"]
 albedo_color = Color(0.247059, 0.247059, 0.247059, 1)
@@ -46,6 +47,9 @@ anchor_bottom = 0.667
 offset_top = 0.23999
 offset_right = 0.0
 offset_bottom = 0.239929
+
+[node name="ExperienceUI" parent="UILayer" instance=ExtResource("8_fieyf")]
+visible = false
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_2ucn6")

@@ -14,6 +14,8 @@ var currentBattler : Node = null
 var turnCount = 0
 
 signal initialized
+signal victory(defeatedEnemies)
+signal defeat
 
 func initialize(party, enemies):
 	#Create battlers for each member of the party and enemy
@@ -73,6 +75,7 @@ func battle():
 		#Abilities should have already tallied their own XP (?)
 		#Delete the entity from the map
 		print("You won!")
+		victory.emit(defeatedEnemies)
 
 func useAbility(ability, target):
 	print(currentBattler, " using ", ability, " on ", target)
