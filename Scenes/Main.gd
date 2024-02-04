@@ -67,8 +67,10 @@ func winBattle(defeatedEnemies):
 	swapUI(experienceUI)
 	#Calculate the experience gained
 	experienceUI.initialize(Party.get_children(), 1)
+	await experienceUI.continueButton
+	swapUI(movementUI)
 	pass
-
+	
 func swapUI(layer : Node):
 	for item in UILayer.get_children():
 		if item == healthUI:

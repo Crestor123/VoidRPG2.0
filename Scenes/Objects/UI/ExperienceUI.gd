@@ -5,6 +5,8 @@ extends Control
 @onready var cntrExperience = $VBoxContainer/ScrollContainer/ExperienceContainer
 @onready var btnContinue = $VBoxContainer/Continue
 
+signal continueButton
+
 #Display Experience gained by each party member
 #Then display experience gained for each ability one party member at a time
 #Skip button that jumps to the end
@@ -20,3 +22,7 @@ func initialize(partyList : Array[Node], experience : int):
 		print(item.experience + experience, item.xpToLevel)
 		xpBar.healthBar.setBar(100 * (float(item.experience + experience) / float(item.xpToLevel)))
 	pass
+
+
+func _on_continue_pressed():
+	continueButton.emit()

@@ -66,3 +66,5 @@ icon = ExtResource("2_3mxox")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
