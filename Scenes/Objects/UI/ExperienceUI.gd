@@ -19,7 +19,6 @@ func initialize(partyList : Array[Node], experience : int):
 		var xpBar = ExperienceObject.instantiate()
 		cntrExperience.add_child(xpBar)
 		xpBar.initialize(item.name, 100 * (float(item.experience) / float(item.xpToLevel)))
-		print(item.experience + experience, item.xpToLevel)
 		xpBar.healthBar.setBar(100 * (float(item.experience + experience) / float(item.xpToLevel)))
 	pass
 

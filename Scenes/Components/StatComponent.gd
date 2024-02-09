@@ -1,6 +1,6 @@
 extends Node
 
-@onready var Buffs = $Buffs
+@export var buffObject : PackedScene
 
 signal healthZero
 
@@ -77,6 +77,9 @@ func takeDamage(value, type):
 	#print("damage reduction: ", damageReduction)
 	#value -= floor(value * float((100 - resistances[type]) / 100))
 	value -= floor(damageReduction * value)
+	value -= getStat("constitution")
+	if value < 0: value = 0
+	
 	#print("Taking ", value, " damage of ", type, " type")
 	tempStats.health -= value
 	print(tempStats.health, " left")
@@ -87,7 +90,17 @@ func takeDamage(value, type):
 	get_parent().updateHealthBar.emit(getHealthPercent())
 	pass
 	
-func addBuff():
+func addBuff(source : String, mainStat : String, value : int, turns : int, element : String):
+	var newBuff = buffObject.instantiate()
+	add_child(newBuff)
+	
+	newBuff.initialize(source, mainStat, value, turns, element)
+	pass
+	
+func tickBuffs():
+	print(get_children())
+	for item in get_children():
+		item.tick()
 	pass
 
 func getHealthPercent() -> float:

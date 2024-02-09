@@ -4,5 +4,3 @@
 
 [node name="StatComponent" type="Node"]
 script = ExtResource("1_tribq")
-
-[node name="Buffs" type="Node" parent="."]

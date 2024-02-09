@@ -36,6 +36,7 @@ func levelUp():
 
 func startTurn(_turnCount : int):
 	isActive = true
+	stats.tickBuffs()
 	print(self, " is active!")
 
 func die():

@@ -24,7 +24,13 @@ func useAbility(ability, target):
 	#Evaluate additional effects
 	#Based on the type of ability, apply the result to the target(s)
 	if ability.target == "self":
-		print("targeting self")
-	else:
-		print("dealing ", damage, " damage to the target")
-		if target: target.stats.takeDamage(damage, ability.element)
+		target = get_parent()
+	if target == null:
+		print("Error: no target for ability")
+		return
+
+	match ability.type:
+		"attack":
+			target.stats.takeDamage(damage, ability.element)
+		"buff":
+			target.stats.addBuff(ability.abilityName, ability.mainStat, damage, ability.turns, ability.element)
