@@ -11,6 +11,9 @@ extends Node
 
 @export_enum ("health", "mana", "strength", "dexterity", "constitution", 
 	"intelligence", "wisdom", "charisma" ) var mainStat : String
+@export_enum ("health", "mana", "strength", "dexterity", "constitution", 
+	"intelligence", "wisdom", "charisma" ) var targetStat : String
+	
 @export var cost : int = 0
 @export var baseDamage : int
 @export var multiplier : float
@@ -30,6 +33,7 @@ func initialize():
 		type = data.type
 		target = data.target
 		mainStat = data.mainStat
+		targetStat = data.targetStat
 		cost = data.cost
 		baseDamage = data.baseDamage
 		multiplier = data.multiplier

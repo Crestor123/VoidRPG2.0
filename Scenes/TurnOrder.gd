@@ -25,6 +25,8 @@ func removeBattler(battler : Node):
 	turnOrder.erase(battler)
 	
 func clear():
+	turnOrder.clear()
+	currentBattler = -1
 	pass
 
 static func sort(a : Node, b : Node):

@@ -23,6 +23,7 @@ func initialize(party, enemies):
 	
 	enemyList.clear()
 	defeatedEnemies.clear()
+	TurnOrder.clear()
 	
 	for member in party:
 		TurnOrder.addTurn(member)

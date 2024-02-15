@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpefi2s3q1l0n"]
+[gd_scene load_steps=6 format=3 uid="uid://cpefi2s3q1l0n"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/PartyMember.gd" id="1_aljjp"]
 [ext_resource type="PackedScene" uid="uid://dquexvpeh3guq" path="res://Scenes/Objects/Ability.tscn" id="2_fjwdu"]
 [ext_resource type="PackedScene" uid="uid://bjc6jc6516g38" path="res://Scenes/Components/StatComponent.tscn" id="3_4ht2w"]
 [ext_resource type="PackedScene" uid="uid://b6iustp228h20" path="res://Scenes/Components/AbilityComponent.tscn" id="4_gganj"]
-[ext_resource type="PackedScene" uid="uid://dgyfw6gt4gsod" path="res://Scenes/Components/Buff.tscn" id="4_n7knk"]
 [ext_resource type="PackedScene" uid="uid://da5nhmchq21qi" path="res://Scenes/Components/KnowledgeComponent.tscn" id="6_4sq35"]
 
 [node name="PartyMember" type="Node2D"]
@@ -12,7 +11,6 @@ script = ExtResource("1_aljjp")
 abilityObject = ExtResource("2_fjwdu")
 
 [node name="StatComponent" parent="." instance=ExtResource("3_4ht2w")]
-buffObject = ExtResource("4_n7knk")
 
 [node name="AbilityComponent" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("4_gganj")]
 stats = NodePath("../StatComponent")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjc6jc6516g38"]
+[gd_scene load_steps=3 format=3 uid="uid://bjc6jc6516g38"]
 
 [ext_resource type="Script" path="res://Scenes/Components/StatComponent.gd" id="1_tribq"]
+[ext_resource type="PackedScene" uid="uid://dgyfw6gt4gsod" path="res://Scenes/Components/Buff.tscn" id="2_7hdes"]
 
 [node name="StatComponent" type="Node"]
 script = ExtResource("1_tribq")
+buffObject = ExtResource("2_7hdes")

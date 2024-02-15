@@ -28,7 +28,7 @@ func initialize(source : String, mainStat : String, value : int, turns : int, el
 func tick():
 	#Evaluate the effects of the buff each turn
 	if mainStat == "health":
-		target.tempStats.health += value
+		target.takeDamage(-value, element)
 	if mainStat == "mana":
 		target.tempStats.mana += value
 		

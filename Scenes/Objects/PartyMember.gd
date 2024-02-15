@@ -53,4 +53,6 @@ func startTurn(_turnCount : int):
 func die():
 	#print(self, " is dead")
 	alive = false
+	isActive = false
+		
 	dead.emit(self)

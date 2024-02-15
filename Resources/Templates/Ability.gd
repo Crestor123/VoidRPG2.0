@@ -11,6 +11,9 @@ class_name Ability
 
 @export_enum ("health", "mana", "strength", "dexterity", "constitution", 
 	"intelligence", "wisdom", "charisma" ) var mainStat : String
+@export_enum ("health", "mana", "strength", "dexterity", "constitution", 
+	"intelligence", "wisdom", "charisma" ) var targetStat : String
+	
 @export var cost : int = 0
 @export var baseDamage : int
 @export var multiplier : float

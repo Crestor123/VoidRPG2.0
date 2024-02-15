@@ -36,6 +36,7 @@ func initialize(setResource : Resource = null):
 func startTurn(turnCount : int):
 	#Called at the beginning of the battler's turn
 	print(self, "is active.")
+	stats.tickBuffs()
 	var ability = chooseAbility(turnCount)
 	var target = chooseTarget(ability)
 	
@@ -59,5 +60,7 @@ func chooseTarget(ability : Node):
 func die():
 	#print(self, " is dead")
 	alive = false
+	if isActive:
+		turnFinished.emit()
 	dead.emit(self)
 	pass

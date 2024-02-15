@@ -11,11 +11,13 @@ icon = ExtResource("1_g4vhn")
 type = "buff"
 target = "self"
 mainStat = "constitution"
+targetStat = "constitution"
 cost = 0
 baseDamage = 2
 multiplier = 1.5
 turns = 1
 element = "earth"
+prerequisites = {}
 additionalEffects = {
 "resistances": {
 "all": 25

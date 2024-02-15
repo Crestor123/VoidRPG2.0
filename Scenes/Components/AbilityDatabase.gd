@@ -11,5 +11,5 @@ func _ready():
 		while file != "":
 			#File should be an ability resource
 			var ability = load(abilityPath + file)
-			abilityData[file] = {"name": ability.name, "prerequisites": ability.prerequisites}
+			abilityData[abilityPath + file] = {"name": ability.name, "prerequisites": ability.prerequisites}
 			file = dir.get_next()
