@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjqrsltclqk08"]
+[gd_scene load_steps=15 format=3 uid="uid://bjqrsltclqk08"]
 
 [ext_resource type="PackedScene" uid="uid://cs4mh41ray2l4" path="res://Scenes/Actors/Player.tscn" id="1_02n11"]
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_mmrmv"]
 [ext_resource type="PackedScene" uid="uid://0arj54tytgb5" path="res://Scenes/Objects/UI/MovementUI.tscn" id="1_orfka"]
 [ext_resource type="PackedScene" uid="uid://cpefi2s3q1l0n" path="res://Scenes/Objects/PartyMember.tscn" id="2_7irq2"]
+[ext_resource type="PackedScene" uid="uid://car6uwwbvjfsf" path="res://Scenes/Components/AbilityDatabase.tscn" id="2_mwmef"]
 [ext_resource type="PackedScene" uid="uid://hseb1wdlrl8b" path="res://Scenes/Battle.tscn" id="2_vrged"]
 [ext_resource type="Resource" uid="uid://dfwyi62eual2" path="res://Resources/PartyMembers/Test.tres" id="3_piwwk"]
 [ext_resource type="PackedScene" uid="uid://d112vtgesk8ac" path="res://Scenes/Objects/Entity.tscn" id="5_d32gq"]
@@ -21,6 +22,8 @@ size = Vector2(20, 20)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_mmrmv")
+
+[node name="AbilityDatabase" parent="." instance=ExtResource("2_mwmef")]
 
 [node name="PartyMembers" type="Node" parent="."]
 
@@ -64,4 +67,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.1, 1)
 [node name="Entity" parent="Entities" instance=ExtResource("5_d32gq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -3)
 data = Array[Resource]([ExtResource("6_5sgyr"), ExtResource("6_5sgyr")])
+type = "enemy"
+
+[node name="Entity2" parent="Entities" instance=ExtResource("5_d32gq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 1)
+data = Array[Resource]([ExtResource("6_5sgyr")])
 type = "enemy"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0u2nhom40bs5"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/UI/Battle/BattleUI.gd" id="1_a4eku"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/UI/Battle/AbilityUI.tscn" id="2_ug7s7"]
+[ext_resource type="PackedScene" uid="uid://bmlsnsjnq1d0a" path="res://Scenes/Objects/UI/Battle/AbilityUI.tscn" id="2_ug7s7"]
 [ext_resource type="PackedScene" uid="uid://m0p4u7s6ya5f" path="res://Scenes/Objects/UI/HealthUI.tscn" id="3_clped"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/UI/Battle/EnemyButton.tscn" id="4_uu45p"]
 [ext_resource type="PackedScene" uid="uid://bvfi7pb15066a" path="res://Scenes/Objects/UI/Cursor.tscn" id="5_mhlfh"]

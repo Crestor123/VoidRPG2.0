@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://da5nhmchq21qi"]
+
+[ext_resource type="Script" path="res://Scenes/Components/KnowledgeComponent.gd" id="1_abnuy"]
+
+[node name="KnowledgeComponent" type="Node"]
+script = ExtResource("1_abnuy")

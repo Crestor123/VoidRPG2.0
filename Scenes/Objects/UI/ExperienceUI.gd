@@ -24,4 +24,6 @@ func initialize(partyList : Array[Node], experience : int):
 
 
 func _on_continue_pressed():
+	for item in cntrExperience.get_children():
+		item.queue_free()
 	continueButton.emit()

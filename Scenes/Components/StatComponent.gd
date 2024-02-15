@@ -2,6 +2,8 @@ extends Node
 
 @export var buffObject : PackedScene
 
+@export var parent : Node
+
 signal healthZero
 
 var level : int = 1
@@ -54,6 +56,7 @@ var resistances = {
 }
 
 func initialize(resource = null):
+	parent = get_parent()
 	var data = resource
 	if data != null:
 		stats.health = data.health
@@ -70,7 +73,7 @@ func initialize(resource = null):
 		for item in resistances:
 			resistances[item] = data.resistances[item]
 			
-func takeDamage(value, type):
+func takeDamage(value : int , type : String):
 	#print("initial damage: ", value)
 	#print("resistance: ", resistances[type])
 	var damageReduction = (float(resistances[type])) / 100
@@ -87,7 +90,7 @@ func takeDamage(value, type):
 		tempStats.health = 0
 		healthZero.emit()
 	
-	get_parent().updateHealthBar.emit(getHealthPercent())
+	parent.updateHealthBar.emit(getHealthPercent())
 	pass
 	
 func addBuff(source : String, mainStat : String, value : int, turns : int, element : String):
@@ -104,7 +107,7 @@ func tickBuffs():
 	pass
 
 func getHealthPercent() -> float:
-	return 100 * (tempStats.health / stats.health)
+	return 100 * (float(tempStats.health) / float(stats.health))
 
 func getStat(stat : String):
 	if stat in stats:

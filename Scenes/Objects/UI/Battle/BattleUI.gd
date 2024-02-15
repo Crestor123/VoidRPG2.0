@@ -98,3 +98,10 @@ func cursorButton(buttonData : int):
 	selectedEnemy = buttonData
 	cursor.moveCursor(healthBarContainer.get_child(buttonData))
 	pass
+
+func clear():
+	for item in abilityContainer.get_children():
+		item.queue_free()
+	for item in buttonContainer.get_children():
+		item.queue_free()
+	pass

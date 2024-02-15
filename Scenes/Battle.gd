@@ -21,10 +21,14 @@ func initialize(party, enemies):
 	#Create battlers for each member of the party and enemy
 	#Populate the turn order
 	
+	enemyList.clear()
+	defeatedEnemies.clear()
+	
 	for member in party:
 		TurnOrder.addTurn(member)
 		partyList.append(member)
-		member.dead.connect(battlerDead)
+		if !member.dead.is_connected(battlerDead):
+			member.dead.connect(battlerDead)
 	
 	for enemy in enemies:
 		var newBattler = enemyScene.instantiate()
@@ -42,7 +46,8 @@ func initialize(party, enemies):
 	#Small delay to allow UI to initialize
 	timer.start()
 	await timer.timeout
-	battleUI.chooseAbility.connect(useAbility)
+	if !battleUI.chooseAbility.is_connected(useAbility):
+		battleUI.chooseAbility.connect(useAbility)
 	TurnOrder.sortTurn()
 	
 	return

@@ -3,14 +3,23 @@ extends Node
 @export var abilityObject : PackedScene
 
 @export var stats : Node
+@export var parent : Node
 
 func initialize(abilityList):
+	parent = get_parent()
 	for item in abilityList:
 		var newAbility = abilityObject.instantiate()
 		add_child(newAbility)
 		newAbility.data = item
 		newAbility.initialize()
 	pass
+
+func addAbility(abilityPath : String):
+	var loadAbility = load(abilityPath)
+	var newAbility = abilityObject.instantiate()
+	add_child(newAbility)
+	newAbility.data = loadAbility
+	newAbility.initialize()
 
 func useAbility(ability, target):
 	if ability not in get_children():
@@ -24,10 +33,13 @@ func useAbility(ability, target):
 	#Evaluate additional effects
 	#Based on the type of ability, apply the result to the target(s)
 	if ability.target == "self":
-		target = get_parent()
+		target = parent
 	if target == null:
 		print("Error: no target for ability")
 		return
+
+	if parent.has_node("KnowledgeComponent"):
+		parent.knowledge.addKnowledge(ability.element, 1)
 
 	match ability.type:
 		"attack":

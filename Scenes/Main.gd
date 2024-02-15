@@ -6,6 +6,7 @@ extends Node3D
 @onready var Party = $PartyMembers
 @onready var Grid = $GridMap
 @onready var Entities = $Entities
+@onready var AbilityData = $AbilityDatabase
 
 enum {MOVEMENT, BATTLE, HEALTH, EXPERIENCE}
 var currentUILayer : Node = null
@@ -22,7 +23,9 @@ func _ready():
 	
 	for member in Party.get_children():
 		member.initialize()
-		
+	
+	Battle.victory.connect(winBattle)
+	
 	connectUI()
 	pass
 
@@ -56,18 +59,31 @@ func enterBattle(enemyData):
 	#Swap out UI
 	swapUI(battleUI)
 	await Battle.initialize(Party.get_children(), enemyData)
-	Battle.victory.connect(winBattle)
+	#Battle.victory.connect(winBattle)
 	Battle.battle()
 	pass
 
 func winBattle(defeatedEnemies):
 	#Remove entity from field
 	interactingEntity.queue_free()
-	#Swap UI
+	battleUI.clear()
 	swapUI(experienceUI)
+	
 	#Calculate the experience gained
-	experienceUI.initialize(Party.get_children(), 1)
+	var xp = 0
+	for enemy in defeatedEnemies:
+		xp += enemy.stats.level
+	#Add the experience to each party member
+	for item in Party.get_children():
+		item.addXP(xp)
+		item.knowledge.checkAbilityData(AbilityData.abilityData)
+	#Show the experience bar(s)
+	experienceUI.initialize(Party.get_children(), xp)
 	await experienceUI.continueButton
+	
+	for item in defeatedEnemies:
+		item.queue_free()
+	
 	swapUI(movementUI)
 	pass
 	

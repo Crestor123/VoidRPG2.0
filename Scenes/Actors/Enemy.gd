@@ -50,7 +50,6 @@ func startTurn(turnCount : int):
 func chooseAbility(turnCount : int) -> Node:
 	#Choose one of the available abilities based on turn count
 	return (abilities.get_child((turnCount % abilities.get_child_count())))
-	pass
 
 func chooseTarget(ability : Node):
 	if ability.target != "self":
