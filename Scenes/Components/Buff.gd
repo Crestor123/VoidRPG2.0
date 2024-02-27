@@ -39,7 +39,7 @@ func tick():
 	
 func expire():
 	#When the buff's turn counter reaches zero, remove the buff's effects
-	if mainStat != "health" or mainStat != "mana":
+	if mainStat != "health" and mainStat != "mana":
 		target.tempStats[mainStat] -= value
 		
 	queue_free()

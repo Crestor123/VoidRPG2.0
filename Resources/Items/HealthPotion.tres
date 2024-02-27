@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://7i0sgqljhk8v"]
+
+[ext_resource type="Texture2D" uid="uid://cs27piggrxysm" path="res://Assets/Sprites/Fire.png" id="1_5ceyd"]
+[ext_resource type="Script" path="res://Resources/Templates/Item.gd" id="1_g72q7"]
+
+[resource]
+script = ExtResource("1_g72q7")
+name = "Health Potion"
+description = "Refills 10 health."
+icon = ExtResource("1_5ceyd")
+cost = 5
+type = "consumable"
+slot = "none"
+targetStat = "health"
+element = "fire"
+bonus = 10
+additionalEffects = {}

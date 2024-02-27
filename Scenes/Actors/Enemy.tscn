@@ -7,10 +7,12 @@
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_3navf")
 
-[node name="AbilityComponent" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("3_blctw")]
+[node name="AbilityComponent" parent="." node_paths=PackedStringArray("stats", "parent") instance=ExtResource("3_blctw")]
 stats = NodePath("../StatComponent")
+parent = NodePath("..")
 
-[node name="StatComponent" parent="." instance=ExtResource("4_rr75k")]
+[node name="StatComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("4_rr75k")]
+parent = NodePath("..")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2

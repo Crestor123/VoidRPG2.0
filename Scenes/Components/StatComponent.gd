@@ -3,6 +3,7 @@ extends Node
 @export var buffObject : PackedScene
 
 @export var parent : Node
+@export var equipment : Node
 
 signal healthZero
 
