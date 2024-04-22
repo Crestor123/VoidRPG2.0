@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvuafp4t0choo"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Inventory/Consumable.gd" id="1_6a7r1"]
+
+[node name="Consumable" type="Node"]
+script = ExtResource("1_6a7r1")

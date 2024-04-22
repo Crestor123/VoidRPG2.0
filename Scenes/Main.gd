@@ -8,12 +8,14 @@ extends Node3D
 @onready var Entities = $Entities
 @onready var AbilityData = $AbilityDatabase
 
-enum {MOVEMENT, BATTLE, HEALTH, EXPERIENCE}
+enum {MOVEMENT, BATTLE, HEALTH, EXPERIENCE, INVENTORY}
 var currentUILayer : Node = null
+var prevUILayer : Node = null
 var movementUI : Node = null
 var battleUI : Node = null
 var healthUI : Node = null
 var experienceUI : Node = null
+var inventoryUI : Node = null
 
 var interactingEntity : Node = null
 
@@ -34,16 +36,26 @@ func connectUI():
 	battleUI = UILayer.get_child(1)
 	healthUI = UILayer.get_child(2)
 	experienceUI = UILayer.get_child(3)
+	inventoryUI = UILayer.get_child(4)
 	
 	swapUI(movementUI)
-	UILayer.get_child(MOVEMENT).buttonPressed.connect(Player.move)
+	UILayer.get_child(MOVEMENT).movementButtonPressed.connect(Player.move)
 	UILayer.get_child(MOVEMENT).buttonPressed.connect(buttonPressed)
+	
+	inventoryUI.buttonPressed.connect(buttonPressed)
 	
 	healthUI.initialize(Party.get_children())
 	pass
 	
 func buttonPressed(button : String):
 	print(button, " pressed")
+	if  button == "inventory":
+		#Open the inventory
+		swapUI(inventoryUI)
+		inventoryUI.fillItems(Party.get_child(0).inventory)
+	if button == "back":
+		if prevUILayer != null: swapUI(prevUILayer)
+		else: swapUI(movementUI)
 	pass
 
 func entityInteract(ID, type, data):
@@ -88,6 +100,7 @@ func winBattle(defeatedEnemies):
 	pass
 	
 func swapUI(layer : Node):
+	prevUILayer = currentUILayer
 	for item in UILayer.get_children():
 		if item == healthUI:
 			continue

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8ip4xc8x5m5s"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/UI/ItemUI.gd" id="1_3jhuh"]
+[ext_resource type="Texture2D" uid="uid://c7fq8gigavlh0" path="res://Assets/Sprites/Bag.png" id="1_idife"]
+
+[node name="ItemUI" type="Control"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3jhuh")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="PanelContainer"]
+layout_mode = 2
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("1_idife")

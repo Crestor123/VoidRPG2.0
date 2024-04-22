@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=2 format=3 uid="uid://c10byt2rq8inp"]
+
+[ext_resource type="Script" path="res://Resources/Templates/Equipment.gd" id="1_rv0uu"]
+
+[resource]
+script = ExtResource("1_rv0uu")
+slot = "ring"
+bonuses = {
+"charisma": 0,
+"constitution": 0,
+"dexterity": 0,
+"health": 0,
+"intelligence": 0,
+"mana": 0,
+"stength": 0,
+"wisdom": 0
+}
+name = "Test Ring"
+description = ""
+cost = 0
+additionalEffects = {}

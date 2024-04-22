@@ -19,6 +19,8 @@ class_name PartyMember
 
 @export var abilities : Array[Resource]
 
+@export var inventory : Array[Resource]
+
 @export var resistances = {
 	"fire": 0,
 	"light": 0,

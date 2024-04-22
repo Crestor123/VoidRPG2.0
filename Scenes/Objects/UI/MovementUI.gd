@@ -5,11 +5,16 @@ extends Control
 @onready var LeftButton = $CenterContainer/HBoxContainer/Left
 @onready var RightButton = $CenterContainer/HBoxContainer/Right
 @onready var DownButton = $CenterContainer/HBoxContainer/VBoxContainer/Down
+@onready var InventoryButton = $CenterContainer/HBoxContainer/Inventory
 
 signal buttonPressed(button : String)
+signal movementButtonPressed(button : String)
 
 func emitButton(button : String):
-	buttonPressed.emit(button)
+	if button == "inventory":
+		buttonPressed.emit(button)
+	else:
+		movementButtonPressed.emit(button)
 	pass
 
 func _on_left_pressed():
@@ -30,4 +35,8 @@ func _on_down_pressed():
 
 func _on_right_pressed():
 	emitButton("right")
+	pass # Replace with function body.
+
+func _on_inventory_pressed():
+	emitButton("inventory")
 	pass # Replace with function body.

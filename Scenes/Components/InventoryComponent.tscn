@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv3b700b1vlb3"]
+[gd_scene load_steps=4 format=3 uid="uid://bv3b700b1vlb3"]
 
 [ext_resource type="Script" path="res://Scenes/Components/InventoryComponent.gd" id="1_ie5rw"]
+[ext_resource type="PackedScene" uid="uid://1n8ul5ffhpws" path="res://Scenes/Objects/Inventory/Item.tscn" id="2_kxrm1"]
+[ext_resource type="PackedScene" uid="uid://b0bg5mqxwm8jj" path="res://Scenes/Objects/Inventory/Equipment.tscn" id="3_ldkig"]
 
 [node name="InventoryComponent" type="Node"]
 script = ExtResource("1_ie5rw")
+itemScene = ExtResource("2_kxrm1")
+equipmentScene = ExtResource("3_ldkig")

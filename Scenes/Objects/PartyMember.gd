@@ -6,6 +6,8 @@ extends Node2D
 @onready var abilities = $AbilityComponent
 @onready var stats = $StatComponent
 @onready var knowledge = $KnowledgeComponent
+@onready var inventory = $InventoryComponent
+@onready var equipment = $EquipmentComponent
 
 var experience : int = 0
 var xpToLevel : int = 0
@@ -21,6 +23,8 @@ func initialize():
 	name = data.name
 	stats.initialize(data)
 	abilities.initialize(data.abilities)
+	inventory.initialize(data.inventory)
+	
 	knowledge.parent = self
 	
 	xpToLevel = xpToNextLevel(stats.level)
