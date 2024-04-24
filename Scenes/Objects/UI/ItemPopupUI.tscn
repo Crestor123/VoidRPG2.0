@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://df3hvivqx3w64"]
+[gd_scene load_steps=5 format=3 uid="uid://df3hvivqx3w64"]
 
-[ext_resource type="PackedScene" uid="uid://c8ip4xc8x5m5s" path="res://Scenes/Objects/UI/ItemIconUI.tscn" id="1_4t3so"]
 [ext_resource type="Script" path="res://Scenes/Objects/UI/ItemPopupUI.gd" id="1_80kul"]
+[ext_resource type="Texture2D" uid="uid://c7fq8gigavlh0" path="res://Assets/Sprites/Bag.png" id="2_6uwr1"]
 [ext_resource type="Texture2D" uid="uid://be4gw0ymtrdkq" path="res://Assets/Sprites/Close.png" id="2_esw1j"]
+[ext_resource type="Texture2D" uid="uid://biaqrlvpjkk03" path="res://Assets/Sprites/Go.png" id="4_00t88"]
 
 [node name="ItemPopupUI" type="Control"]
 layout_mode = 3
@@ -44,8 +45,11 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 
-[node name="ItemIconUI" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_4t3so")]
+[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_6uwr1")
+stretch_mode = 4
 
 [node name="ItemName" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -64,24 +68,31 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="Description" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Item Description"
+autowrap_mode = 3
 
-[node name="Container" type="AspectRatioContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.15
-alignment_horizontal = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/Container"]
+[node name="Container" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
-texture = ExtResource("2_esw1j")
-stretch_mode = 4
 
 [node name="CloseButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/Container"]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_vertical = 3
+icon = ExtResource("2_esw1j")
 flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="EquipButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/Container"]
+visible = false
+custom_minimum_size = Vector2(240, 120)
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("4_00t88")
+icon_alignment = 1
+expand_icon = true

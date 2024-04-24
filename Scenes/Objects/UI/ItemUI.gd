@@ -6,7 +6,10 @@ extends Control
 signal buttonPressed(data)
 var data : Node = null
 
-func initialize(item : Node):
+func initialize(item : ItemNode):
 	data = item
 	if item.icon != null:
 		icon.texture = data.icon
+
+func _on_button_pressed():
+	buttonPressed.emit(data)

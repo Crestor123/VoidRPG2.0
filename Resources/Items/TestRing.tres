@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Equipment" load_steps=2 format=3 uid="uid://c10byt2rq8inp"]
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://c10byt2rq8inp"]
 
+[ext_resource type="Texture2D" uid="uid://d2rnkpu5mcjox" path="res://Assets/Sprites/EmptySlot.png" id="1_dp7pc"]
 [ext_resource type="Script" path="res://Resources/Templates/Equipment.gd" id="1_rv0uu"]
 
 [resource]
@@ -16,6 +17,7 @@ bonuses = {
 "wisdom": 0
 }
 name = "Test Ring"
-description = ""
+description = "A ring used for testing purposes.  This is a long description long description long description."
+icon = ExtResource("1_dp7pc")
 cost = 0
 additionalEffects = {}

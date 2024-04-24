@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpefi2s3q1l0n"]
+[gd_scene load_steps=9 format=3 uid="uid://cpefi2s3q1l0n"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/PartyMember.gd" id="1_aljjp"]
 [ext_resource type="PackedScene" uid="uid://dquexvpeh3guq" path="res://Scenes/Objects/Ability.tscn" id="2_fjwdu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6iustp228h20" path="res://Scenes/Components/AbilityComponent.tscn" id="4_gganj"]
 [ext_resource type="PackedScene" uid="uid://da5nhmchq21qi" path="res://Scenes/Components/KnowledgeComponent.tscn" id="6_4sq35"]
 [ext_resource type="PackedScene" uid="uid://bv3b700b1vlb3" path="res://Scenes/Components/InventoryComponent.tscn" id="6_ylojq"]
+[ext_resource type="PackedScene" uid="uid://dvuafp4t0choo" path="res://Scenes/Objects/Inventory/Consumable.tscn" id="7_0t02m"]
 [ext_resource type="PackedScene" uid="uid://c37eccbn4d3ib" path="res://Scenes/Components/EquipmentComponent.tscn" id="7_k1qns"]
 
 [node name="PartyMember" type="Node2D"]
@@ -22,5 +23,6 @@ stats = NodePath("../StatComponent")
 [node name="KnowledgeComponent" parent="." instance=ExtResource("6_4sq35")]
 
 [node name="InventoryComponent" parent="." instance=ExtResource("6_ylojq")]
+consumableScene = ExtResource("7_0t02m")
 
 [node name="EquipmentComponent" parent="." instance=ExtResource("7_k1qns")]

@@ -1,5 +1,7 @@
 extends ItemNode
 
+class_name ConsumableNode
+
 @export_enum ("health", "mana", "strength", "dexterity", "constitution", 
 	"intelligence", "wisdom", "charisma" ) var targetStat : String
 	

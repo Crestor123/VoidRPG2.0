@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Equipment" load_steps=2 format=3 uid="uid://nhnn52wstbto"]
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://nhnn52wstbto"]
 
+[ext_resource type="Texture2D" uid="uid://55niu28a63is" path="res://Assets/Sprites/Earth.png" id="1_4pkk1"]
 [ext_resource type="Script" path="res://Resources/Templates/Equipment.gd" id="1_bxjl2"]
 
 [resource]
@@ -16,6 +17,7 @@ bonuses = {
 "wisdom": 0
 }
 name = "Leather Armor"
-description = ""
+description = "Basic leather armor."
+icon = ExtResource("1_4pkk1")
 cost = 0
 additionalEffects = {}

@@ -1,29 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqbqhh4gbftcq"]
+[gd_scene load_steps=4 format=3 uid="uid://dqbqhh4gbftcq"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/UI/InventoryUI.gd" id="1_iiu18"]
 [ext_resource type="PackedScene" uid="uid://c8ip4xc8x5m5s" path="res://Scenes/Objects/UI/ItemIconUI.tscn" id="2_mg5ix"]
+[ext_resource type="PackedScene" uid="uid://df3hvivqx3w64" path="res://Scenes/Objects/UI/ItemPopupUI.tscn" id="3_hmsmx"]
 
 [node name="InventoryUI" type="Control"]
 custom_minimum_size = Vector2(720, 426)
 layout_mode = 3
-anchor_top = 0.667
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 360.0
-offset_top = 426.24
-offset_right = -360.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("1_iiu18")
-itemObject = ExtResource("2_mg5ix")
-
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iiu18")
+itemObject = ExtResource("2_mg5ix")
+
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(720, 426)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="Background"]
@@ -54,5 +55,9 @@ offset_bottom = -426.0
 grow_horizontal = 2
 grow_vertical = 2
 flat = true
+
+[node name="ItemPopupUI" parent="." instance=ExtResource("3_hmsmx")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
