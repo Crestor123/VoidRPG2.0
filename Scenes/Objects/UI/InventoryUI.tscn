@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqbqhh4gbftcq"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/UI/InventoryUI.gd" id="1_iiu18"]
-[ext_resource type="PackedScene" uid="uid://c8ip4xc8x5m5s" path="res://Scenes/Objects/UI/ItemUI.tscn" id="2_mg5ix"]
+[ext_resource type="PackedScene" uid="uid://c8ip4xc8x5m5s" path="res://Scenes/Objects/UI/ItemIconUI.tscn" id="2_mg5ix"]
 
 [node name="InventoryUI" type="Control"]
 custom_minimum_size = Vector2(720, 426)

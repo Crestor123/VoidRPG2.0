@@ -8,6 +8,8 @@ extends Control
 signal buttonPressed(button : String)
 
 func fillItems(itemList : Node):
+	emptyItems()
+	
 	for item in itemList.get_children():
 		var newItem = itemObject.instantiate()
 		itemContainer.add_child(newItem)

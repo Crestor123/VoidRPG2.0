@@ -1,7 +1,7 @@
 extends Control
 
 @onready var button = $PanelContainer/Button
-@onready var icon = $PanelContainer/TextureRect
+@onready var icon = $TextureRect
 
 signal buttonPressed(data)
 var data : Node = null
