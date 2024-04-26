@@ -22,7 +22,7 @@ intelligence = 2
 wisdom = 2
 charisma = 2
 abilities = Array[Resource]([ExtResource("1_lpp1x"), ExtResource("2_ly0so")])
-inventory = Array[Resource]([ExtResource("4_cq67y"), ExtResource("5_g3yon"), ExtResource("3_0foxm")])
+inventory = Array[Resource]([ExtResource("4_cq67y"), ExtResource("5_g3yon"), ExtResource("3_0foxm"), ExtResource("3_0foxm")])
 resistances = {
 "acid": 0,
 "air": 0,

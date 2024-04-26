@@ -10,3 +10,5 @@ class_name Consumable
 	"acid", "darkness", "mind", "soul", "flesh", "time") var element : String
 
 @export var bonus : int
+
+@export var quantity : int = 1

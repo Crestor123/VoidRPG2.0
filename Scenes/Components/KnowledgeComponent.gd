@@ -25,6 +25,9 @@ var knowledge = {
 	"time": 0
 }
 
+func initialize():
+	parent = get_parent()
+
 func addKnowledge(type : String, amount : int):
 	knowledge[type] += amount
 	

@@ -88,11 +88,13 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="EquipButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/Container"]
+[node name="UseButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/Container"]
 visible = false
 custom_minimum_size = Vector2(240, 120)
 layout_mode = 2
 size_flags_horizontal = 10
+text = "Use"
 icon = ExtResource("4_00t88")
+flat = true
 icon_alignment = 1
 expand_icon = true

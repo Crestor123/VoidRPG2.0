@@ -4,20 +4,21 @@ extends Node
 @export var equipmentScene : PackedScene
 @export var consumableScene : PackedScene
 
-@export var parent : Node
-
 #Functions that allow for the use of items
 func initialize(itemList):
-	parent = get_parent()
 	for item in itemList:
 		addItem(item)
 
-func useItem(item : Item):
+func useItem(item : ItemNode):
 	pass
 
 func addItem(item : Item):
 	var newItem
 	if item is Consumable:
+		for child in get_children():
+			if child.data == item:
+				child.quantity += 1
+				return
 		newItem = consumableScene.instantiate()
 	elif item is Equipment:
 		newItem = equipmentScene.instantiate()
@@ -28,3 +29,18 @@ func addItem(item : Item):
 	newItem.data = item
 	newItem.initialize()
 	pass
+
+func removeItem(item : ItemNode):
+	for child in get_children():
+		if item == child:
+			if item is ConsumableNode && item.quantity > 1:
+				item.quantity -= 1
+			else:
+				item.queue_free()
+
+func inInventory(item : ItemNode):
+	#Returns if a given item is in the inventory
+	for child in get_children():
+		if item == child:
+			return true
+	return false

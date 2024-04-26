@@ -7,16 +7,25 @@ extends Control
 @onready var popup = $ItemPopupUI
 
 signal buttonPressed(button : String)
-signal equip(selectedItem : EquipmentNode)
+signal use()	#Emits self
 
+var inventory : Node = null
 var selectedItem : ItemNode = null
 
 func _ready():
+	popup.visible = false
+	
 	popup.closeButton.pressed.connect(closePopup)
+	popup.useButton.pressed.connect(useItem)
 	pass
 
 func fillItems(itemList : Node):
 	emptyItems()
+	
+	popup.visible = false
+	if selectedItem != null:
+		popup.initialize(selectedItem)
+		popup.visible = true
 	
 	for item in itemList.get_children():
 		var newItem = itemObject.instantiate()
@@ -36,11 +45,20 @@ func itemButtonPressed(item : ItemNode):
 	popup.initialize(item)
 	popup.visible = true
 
-func equipItem():
+func useItem():
+	if selectedItem != null:
+		use.emit(self)
+	else: print("Selected item is null")
+	pass
+
+func partyMemberSelected(partyMember : Node):
+	
 	pass
 
 func closePopup():
+	selectedItem = null
 	popup.visible = false
 
 func _on_back_button_pressed():
+	emptyItems()
 	buttonPressed.emit("back")

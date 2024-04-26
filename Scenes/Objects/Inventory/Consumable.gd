@@ -11,9 +11,12 @@ class_name ConsumableNode
 	
 @export var bonus : int
 
+@export var quantity : int = 1
+
 func initialize():
 	if data != null:
 		targetStat = data.targetStat
 		element = data.element
 		bonus = data.bonus
+		quantity = data.quantity
 	super.initialize()

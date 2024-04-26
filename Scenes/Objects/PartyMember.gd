@@ -1,12 +1,14 @@
 extends Node2D
 
+class_name PartyMemberNode
+
 @export var data : Resource
 @export var abilityObject : PackedScene
 
 @onready var abilities = $AbilityComponent
 @onready var stats = $StatComponent
 @onready var knowledge = $KnowledgeComponent
-@onready var inventory = $InventoryComponent
+@onready var inventory = null
 @onready var equipment = $EquipmentComponent
 
 var experience : int = 0
@@ -24,8 +26,7 @@ func initialize():
 	stats.initialize(data)
 	abilities.initialize(data.abilities)
 	inventory.initialize(data.inventory)
-	
-	knowledge.parent = self
+	knowledge.initialize()
 	
 	xpToLevel = xpToNextLevel(stats.level)
 	stats.healthZero.connect(die)
@@ -48,6 +49,11 @@ func levelUp():
 		stats.level += 1
 		xpToLevel = xpToNextLevel(stats.level)
 	pass
+
+func equip(item : ItemNode):
+	if inventory.inInventory(item):
+		inventory.removeItem(item)
+	equipment.equip(item)
 
 func startTurn(_turnCount : int):
 	isActive = true
