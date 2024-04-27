@@ -4,3 +4,4 @@
 
 [node name="Consumable" type="Node"]
 script = ExtResource("1_6a7r1")
+quantity = 0

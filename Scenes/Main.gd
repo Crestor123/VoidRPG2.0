@@ -25,6 +25,7 @@ func _ready():
 		member.initialize()
 	
 	for item in UILayer.get_children():
+		if item == UILayer.healthUI: continue
 		item.visible = false
 		
 	for item in UIOverlay.get_children():

@@ -8,6 +8,8 @@ class_name Item
 
 @export var cost : int
 
+@export var stackable : bool
+
 #@export_enum ("consumable", "equipment") var type : String
 
 #@export_enum ("none", "head", "body", "legs", "feet", "ring", "weapon") var slot : String

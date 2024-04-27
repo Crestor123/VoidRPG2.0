@@ -20,6 +20,7 @@ func _ready():
 	pass
 
 func fillItems(itemList : Node):
+	inventory = itemList
 	emptyItems()
 	
 	popup.visible = false
@@ -52,7 +53,12 @@ func useItem():
 	pass
 
 func partyMemberSelected(partyMember : Node):
-	
+	var used = inventory.useItem(selectedItem, partyMember)
+	if used:
+		fillItems(inventory)
+	else:
+		#Popup: item could not be used
+		pass
 	pass
 
 func closePopup():

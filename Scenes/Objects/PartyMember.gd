@@ -8,7 +8,7 @@ class_name PartyMemberNode
 @onready var abilities = $AbilityComponent
 @onready var stats = $StatComponent
 @onready var knowledge = $KnowledgeComponent
-@onready var inventory = null
+@onready var inventory : Node = null
 @onready var equipment = $EquipmentComponent
 
 var experience : int = 0

@@ -10,13 +10,12 @@ class_name ConsumableNode
 	"acid", "darkness", "mind", "soul", "flesh", "time") var element : String
 	
 @export var bonus : int
-
-@export var quantity : int = 1
+@export var turns : int
 
 func initialize():
 	if data != null:
 		targetStat = data.targetStat
 		element = data.element
 		bonus = data.bonus
-		quantity = data.quantity
+		turns = data.turns
 	super.initialize()

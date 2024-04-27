@@ -103,9 +103,10 @@ func takeDamage(value : int , type : String):
 	var damageReduction = (float(resistances[type] + tempResistances[type])) / 100
 	#print("damage reduction: ", damageReduction)
 	#value -= floor(value * float((100 - resistances[type]) / 100))
-	value -= floor(damageReduction * value)
-	value -= getStat("constitution")
-	if value < 0: value = 0
+	if value > 0:
+		value -= floor(damageReduction * value)
+		value -= getStat("constitution")
+		if value < 0: value = 0
 	
 	#print("Taking ", value, " damage of ", type, " type")
 	tempStats.health -= value
@@ -135,4 +136,6 @@ func getHealthPercent() -> float:
 
 func getStat(stat : String):
 	if stat in stats:
+		if stat == "health": return tempStats["health"]
+		if stat == "mana": return tempStats["mana"]
 		return stats[stat] + tempStats[stat]

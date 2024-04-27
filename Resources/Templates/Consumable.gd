@@ -11,4 +11,4 @@ class_name Consumable
 
 @export var bonus : int
 
-@export var quantity : int = 1
+@export var turns : int = 1

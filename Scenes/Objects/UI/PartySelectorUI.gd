@@ -20,12 +20,12 @@ func initialize(partyList : Array, caller : Node):
 	pass
 
 func partyMemberSelected(partyMember : Node):
-	if destination.has_method("partyMemberSelected"):
-		selected.disconnect(destination.partyMemberSelected)
-		destination = null
-	
 	print(partyMember, " selected")
 	selected.emit(partyMember)
 	visible = false
 	for item in buttonContainer.get_children():
 		item.queue_free()
+		
+	if destination.has_method("partyMemberSelected"):
+		selected.disconnect(destination.partyMemberSelected)
+		destination = null
