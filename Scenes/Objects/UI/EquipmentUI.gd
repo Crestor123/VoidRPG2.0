@@ -7,9 +7,9 @@ extends Control
 
 @export var itemIcon : PackedScene
 
-signal equipmentSelected()
+signal equipmentSelected(data)
 
-func initialize(equipmentList : Node):
+func initialize(equipmentList : Node, item : EquipmentNode = null):
 	var slots = equipmentList.slots
 	for slot in slots:
 		var newIcon = itemIcon.instantiate()
@@ -20,4 +20,17 @@ func initialize(equipmentList : Node):
 		if slots[slot] != null:
 			newIcon.initialize(slots[slot])
 		else: newIcon.data = slot
+		
+		if item == null:
+			newIcon.buttonPressed.connect(equipmentButton)
+			return
+		if item.slot == "" || item.slot == slot:
+			newIcon.buttonPressed.connect(equipmentButton)
+		elif item.slot == "ring" && (slot == "rring" || slot == "lring"):
+			newIcon.buttonPressed.connect(equipmentButton)
+		elif item.slot != slot:
+			newIcon.button.visible = false
 	pass
+
+func equipmentButton(data):
+	equipmentSelected.emit(data)

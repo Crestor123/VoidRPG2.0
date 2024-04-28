@@ -11,7 +11,6 @@ func initialize(itemList):
 
 func useItem(item : ItemNode, partyMember : PartyMemberNode) -> bool:
 	#Use an item on a given party member
-	#If the item is a consumable, use it
 	var used = false
 	
 	if item is ConsumableNode:
@@ -24,12 +23,8 @@ func useItem(item : ItemNode, partyMember : PartyMemberNode) -> bool:
 		else:
 			partyMember.stats.addBuff(item.itemName, item.targetStat, item.bonus, item.turns, item.element)
 			used = true
-
-	#If the item is equipment, equip it
-	if item is EquipmentNode:
-		pass
-		
-	#Otherwise, don't use item
+			
+	#If an error occurs, don't use item
 	return used
 	pass
 

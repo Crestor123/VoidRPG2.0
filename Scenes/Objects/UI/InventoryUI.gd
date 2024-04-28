@@ -42,6 +42,9 @@ func emptyItems():
 		item.queue_free()
 	pass
 
+func getSelectedItem():
+	return selectedItem
+
 func itemButtonPressed(item : ItemNode):
 	selectedItem = item
 	popup.initialize(item)
@@ -53,8 +56,14 @@ func useItem():
 	else: print("Selected item is null")
 	pass
 
-func partyMemberSelected(partyMember : Node):
-	var used = inventory.useItem(selectedItem, partyMember)
+func partyMemberSelected(partyMember : Node, slot : String = ""):
+	var used : bool
+	if slot == "":
+		#The item is a consumable
+		used = inventory.useItem(selectedItem, partyMember)
+	else:
+		#The item is equipment
+		used = partyMember.equipment.equip(selectedItem, slot)
 	if used:
 		fillItems(inventory)
 	else:

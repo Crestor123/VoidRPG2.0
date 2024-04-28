@@ -27,6 +27,7 @@ func initialize():
 	abilities.initialize(data.abilities)
 	inventory.initialize(data.inventory)
 	knowledge.initialize()
+	equipment.inventory = inventory
 	
 	xpToLevel = xpToNextLevel(stats.level)
 	stats.healthZero.connect(die)
