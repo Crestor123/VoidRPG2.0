@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx2hwox8kb287"]
+[gd_scene load_steps=4 format=3 uid="uid://bx2hwox8kb287"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/UI/PartyMemberButtonUI.gd" id="1_cuo73"]
 [ext_resource type="PackedScene" uid="uid://m0p4u7s6ya5f" path="res://Scenes/Objects/UI/HealthUI.tscn" id="1_g10v7"]
+[ext_resource type="PackedScene" uid="uid://ce6gv7sw8cg47" path="res://Scenes/Objects/UI/EquipmentUI.tscn" id="3_iacdd"]
 
 [node name="PartyMemberButtonUI" type="Control"]
 layout_mode = 3
@@ -24,10 +25,26 @@ grow_vertical = 2
 
 [node name="Button" type="Button" parent="CenterContainer"]
 layout_mode = 2
-flat = true
+mouse_default_cursor_shape = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="HealthUI" parent="CenterContainer" instance=ExtResource("1_g10v7")]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
+
+[node name="HealthUI" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_g10v7")]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 1
 size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="EquipmentUI" parent="CenterContainer/VBoxContainer/MarginContainer" instance=ExtResource("3_iacdd")]
+layout_mode = 2
 
 [connection signal="pressed" from="CenterContainer/Button" to="." method="_on_button_pressed"]

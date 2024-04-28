@@ -8,6 +8,7 @@ extends Control
 
 signal buttonPressed(button : String)
 signal use()	#Emits self
+signal cancelUse()
 
 var inventory : Node = null
 var selectedItem : ItemNode = null
@@ -62,6 +63,7 @@ func partyMemberSelected(partyMember : Node):
 	pass
 
 func closePopup():
+	cancelUse.emit()
 	selectedItem = null
 	popup.visible = false
 

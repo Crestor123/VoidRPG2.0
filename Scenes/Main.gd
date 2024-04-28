@@ -43,6 +43,7 @@ func connectUI():
 	
 	UILayer.inventoryUI.buttonPressed.connect(buttonPressed)
 	UILayer.inventoryUI.use.connect(partySelector)
+	UILayer.inventoryUI.cancelUse.connect(closeOverlay)
 	
 	UILayer.healthUI.initialize(Party.get_children())
 	pass
@@ -109,7 +110,12 @@ func swapUI(layer : Node):
 	currentUILayer = layer
 	currentUILayer.visible = true
 
+func closeOverlay():
+	UIOverlay.cancel()
+	pass
+
 func partySelector(caller : Node):
+	UIOverlay.currentOverlay = UIOverlay.partySelectorUI
 	UIOverlay.partySelectorUI.initialize(Party.get_children(), caller)
 	UIOverlay.partySelectorUI.visible = true
 	pass

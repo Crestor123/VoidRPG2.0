@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce6gv7sw8cg47"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/UI/EquipmentUI.gd" id="1_ldkog"]
+[ext_resource type="PackedScene" uid="uid://c8ip4xc8x5m5s" path="res://Scenes/Objects/UI/ItemIconUI.tscn" id="2_ws7kj"]
+
+[node name="EquipmentUI" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_ldkog")
+itemIcon = ExtResource("2_ws7kj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="RightContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0

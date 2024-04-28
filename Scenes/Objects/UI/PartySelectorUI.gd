@@ -8,6 +8,8 @@ var destination : Node = null
 signal selected(partyMember : Node)
 
 func initialize(partyList : Array, caller : Node):
+	if destination == caller: return
+	
 	destination = caller
 	if destination.has_method("partyMemberSelected"):
 		selected.connect(destination.partyMemberSelected)
@@ -26,6 +28,16 @@ func partyMemberSelected(partyMember : Node):
 	for item in buttonContainer.get_children():
 		item.queue_free()
 		
+	if destination.has_method("partyMemberSelected"):
+		selected.disconnect(destination.partyMemberSelected)
+		destination = null
+
+func cancel():
+	visible = false
+	for item in buttonContainer.get_children():
+		item.queue_free()
+	
+	if destination == null: return
 	if destination.has_method("partyMemberSelected"):
 		selected.disconnect(destination.partyMemberSelected)
 		destination = null

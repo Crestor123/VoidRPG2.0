@@ -5,7 +5,7 @@ extends Control
 @onready var quantity = $CenterContainer/TextureRect/Quantity
 
 signal buttonPressed(data)
-var data : Node = null
+var data = null
 
 func initialize(item : ItemNode):
 	data = item

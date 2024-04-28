@@ -59,6 +59,12 @@ func removeItem(item : ItemNode):
 			else:
 				item.queue_free()
 
+func transferItem(item : ItemNode, destination : Node):
+	for child in get_children():
+		if item == child:
+			destination.add_child(item)
+			remove_child(item)
+
 func inInventory(item : ItemNode):
 	#Returns if a given item is in the inventory
 	for child in get_children():
