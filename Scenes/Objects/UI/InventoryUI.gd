@@ -64,6 +64,7 @@ func partyMemberSelected(partyMember : Node, slot : String = ""):
 	else:
 		#The item is equipment
 		used = partyMember.equipment.equip(selectedItem, slot)
+		closePopup()
 	if used:
 		fillItems(inventory)
 	else:

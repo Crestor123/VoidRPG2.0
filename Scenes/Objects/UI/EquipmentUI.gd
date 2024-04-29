@@ -23,7 +23,7 @@ func initialize(equipmentList : Node, item : EquipmentNode = null):
 		
 		if item == null:
 			newIcon.buttonPressed.connect(equipmentButton)
-			return
+			continue
 		if item.slot == "" || item.slot == slot:
 			newIcon.buttonPressed.connect(equipmentButton)
 		elif item.slot == "ring" && (slot == "rring" || slot == "lring"):
