@@ -100,7 +100,7 @@ func initialize(resource = null):
 func takeDamage(value : int , type : String):
 	#print("initial damage: ", value)
 	#print("resistance: ", resistances[type])
-	var damageReduction = (float(resistances[type] + tempResistances[type])) / 100
+	var damageReduction = (float(getResistance(type))) / 100
 	#print("damage reduction: ", damageReduction)
 	#value -= floor(value * float((100 - resistances[type]) / 100))
 	if value > 0:
@@ -110,6 +110,8 @@ func takeDamage(value : int , type : String):
 	
 	#print("Taking ", value, " damage of ", type, " type")
 	tempStats.health -= value
+	if tempStats.health > stats.health:
+		tempStats.health = stats.health
 	print(tempStats.health, " left")
 	if tempStats.health <= 0:
 		tempStats.health = 0
@@ -132,10 +134,28 @@ func tickBuffs():
 	pass
 
 func getHealthPercent() -> float:
-	return 100 * (float(tempStats.health) / float(stats.health))
+	return 100 * (float(getStat("health")) / float(getStat("maxhealth")))
 
-func getStat(stat : String):
-	if stat in stats:
-		if stat == "health": return tempStats["health"]
-		if stat == "mana": return tempStats["mana"]
-		return stats[stat] + tempStats[stat]
+func getStat(stat : String) -> int:
+	var result : int = 0
+	if stat in stats || stat == "maxhealth" || stat == "maxmana":
+		if stat == "health": result = tempStats["health"]
+		elif stat == "maxhealth": 
+			result = stats["health"]
+			if equipment: result += equipment.equipStats["health"]
+		elif stat == "mana": result = tempStats["mana"]
+		elif stat == "maxmana": 
+			result = stats["mana"]
+			if equipment: result += equipment.equipStats["health"]
+		else:
+			result = stats[stat] + tempStats[stat]
+			if equipment: result += equipment.equipStats[stat]
+	return result
+
+func getResistance(resistance : String) -> int:
+	var result : int = 0
+	if resistance in resistances:
+		result = resistances[resistance] + tempResistances[resistance]
+		if equipment:
+			result += equipment.equipResistances[resistance]
+	return result

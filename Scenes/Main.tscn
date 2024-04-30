@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjqrsltclqk08"]
+[gd_scene load_steps=22 format=3 uid="uid://bjqrsltclqk08"]
 
 [ext_resource type="PackedScene" uid="uid://cs4mh41ray2l4" path="res://Scenes/Actors/Player.tscn" id="1_02n11"]
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_mmrmv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://tcd704npg8b5" path="res://Resources/Enemies/GroundwalkerBird.tres" id="6_5sgyr"]
 [ext_resource type="PackedScene" uid="uid://c0u2nhom40bs5" path="res://Scenes/Objects/UI/Battle/BattleUI.tscn" id="6_h7rcj"]
 [ext_resource type="Script" path="res://Scenes/UILayer.gd" id="6_pbq28"]
+[ext_resource type="Resource" uid="uid://d3vw40hqgsnq5" path="res://Resources/PartyMembers/Test2.tres" id="7_mfyoi"]
 [ext_resource type="PackedScene" uid="uid://bm0m14t6yfmmx" path="res://Scenes/Objects/UI/PartyHealth.tscn" id="7_vbsi2"]
 [ext_resource type="PackedScene" uid="uid://dpclrg0pcfjij" path="res://Scenes/Objects/UI/ExperienceUI.tscn" id="8_fieyf"]
 [ext_resource type="PackedScene" uid="uid://dqbqhh4gbftcq" path="res://Scenes/Objects/UI/InventoryUI.tscn" id="10_0gu7r"]
@@ -38,6 +39,9 @@ consumableScene = ExtResource("4_yc0bo")
 
 [node name="PartyMember" parent="PartyMembers" instance=ExtResource("2_7irq2")]
 data = ExtResource("3_piwwk")
+
+[node name="PartyMember2" parent="PartyMembers" instance=ExtResource("2_7irq2")]
+data = ExtResource("7_mfyoi")
 
 [node name="Battle" parent="." node_paths=PackedStringArray("battleUI") instance=ExtResource("2_vrged")]
 battleUI = NodePath("../UILayer/BattleUI")

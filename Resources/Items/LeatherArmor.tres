@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://nhnn52wstbto"]
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://dna0pr5xl0erf"]
 
 [ext_resource type="Texture2D" uid="uid://55niu28a63is" path="res://Assets/Sprites/Earth.png" id="1_4pkk1"]
 [ext_resource type="Script" path="res://Resources/Templates/Equipment.gd" id="1_bxjl2"]
@@ -13,11 +13,34 @@ bonuses = {
 "health": 0,
 "intelligence": 0,
 "mana": 0,
-"stength": 0,
+"strength": 3,
 "wisdom": 0
 }
+resistances = {
+"acid": 0,
+"air": 0,
+"cold": 0,
+"crystal": 0,
+"darkness": 0,
+"earth": 30,
+"electricity": 0,
+"fire": 0,
+"flesh": 0,
+"heat": 0,
+"light": 0,
+"metal": 0,
+"mind": 0,
+"motion": 0,
+"soul": 0,
+"sound": 0,
+"time": 0,
+"void": 0,
+"water": 0,
+"wood": 0
+}
 name = "Leather Armor"
-description = "Basic leather armor."
+description = "Simple armor made of leather."
 icon = ExtResource("1_4pkk1")
 cost = 0
+stackable = false
 additionalEffects = {}
