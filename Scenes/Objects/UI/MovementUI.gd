@@ -11,7 +11,7 @@ signal buttonPressed(button : String)
 signal movementButtonPressed(button : String)
 
 func emitButton(button : String):
-	if button == "inventory":
+	if button == "inventory" || button == "equipment":
 		buttonPressed.emit(button)
 	else:
 		movementButtonPressed.emit(button)
@@ -40,3 +40,6 @@ func _on_right_pressed():
 func _on_inventory_pressed():
 	emitButton("inventory")
 	pass # Replace with function body.
+
+func _on_equipment_pressed():
+	emitButton("equipment")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://cxt2ehgvkkkq2"]
 
-[ext_resource type="Texture2D" uid="uid://d2rnkpu5mcjox" path="res://Assets/Sprites/EmptySlot.png" id="1_dp7pc"]
 [ext_resource type="Script" path="res://Resources/Templates/Equipment.gd" id="1_rv0uu"]
+[ext_resource type="Texture2D" uid="uid://cs27piggrxysm" path="res://Assets/Sprites/Fire.png" id="1_verst"]
 
 [resource]
 script = ExtResource("1_rv0uu")
@@ -40,7 +40,7 @@ resistances = {
 }
 name = "Test Ring"
 description = "A ring used for testing purposes."
-icon = ExtResource("1_dp7pc")
+icon = ExtResource("1_verst")
 cost = 0
 stackable = false
 additionalEffects = {}

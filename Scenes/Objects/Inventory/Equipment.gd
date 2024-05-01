@@ -38,6 +38,8 @@ class_name EquipmentNode
 	"time": 0
 }
 
+var currentSlot : String = ""
+
 func initialize():
 	if data != null:
 		slot = data.slot

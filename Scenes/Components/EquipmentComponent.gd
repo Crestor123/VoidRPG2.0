@@ -55,10 +55,11 @@ func equip(equipment : EquipmentNode, slot : String = "") -> bool:
 	
 	inventory.transferItem(equipment, self)
 	if slots[slot] != null:
-		inventory.transferItem(slots[slot], inventory)
+		slots[slot].reparent(inventory)
 		slots[slot] = null
 	if slots[slot] == null:
 		slots[slot] = equipment
+		equipment.currentSlot = slot
 		equipped = true
 	
 	updateStats()
@@ -79,9 +80,14 @@ func updateStats():
 			equipResistances[res] += item.resistances[res]
 	print("Updated equipment")
 	
-func unequip(equipment : EquipmentNode, slot : String = "") -> bool:
+func unequip(equipment : EquipmentNode) -> bool:
 	if inventory == null: return false
 	var unequipped = false
-	
+	print("Unequipping ", equipment)
+	for slot in slots:
+		if slots[slot] == equipment:
+			equipment.reparent(inventory)
+			slots[slot] = null
+			unequipped = true
 	return unequipped
 	pass

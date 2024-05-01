@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjqrsltclqk08"]
+[gd_scene load_steps=23 format=3 uid="uid://bjqrsltclqk08"]
 
 [ext_resource type="PackedScene" uid="uid://cs4mh41ray2l4" path="res://Scenes/Actors/Player.tscn" id="1_02n11"]
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_mmrmv"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dqbqhh4gbftcq" path="res://Scenes/Objects/UI/InventoryUI.tscn" id="10_0gu7r"]
 [ext_resource type="Script" path="res://Scenes/UIOverlay.gd" id="12_g7dam"]
 [ext_resource type="PackedScene" uid="uid://dnvsp255trepw" path="res://Scenes/Objects/UI/PartySelectorUI.tscn" id="13_ckd8t"]
+[ext_resource type="PackedScene" uid="uid://b3saj7385r4ij" path="res://Scenes/Objects/UI/PartyEquipmentUI.tscn" id="15_30d3v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dda42"]
 albedo_color = Color(0.247059, 0.247059, 0.247059, 1)
@@ -48,13 +49,14 @@ battleUI = NodePath("../UILayer/BattleUI")
 
 [node name="CurrentScene" type="Node" parent="."]
 
-[node name="UILayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("movementUI", "battleUI", "healthUI", "experienceUI", "inventoryUI")]
+[node name="UILayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("movementUI", "battleUI", "healthUI", "experienceUI", "inventoryUI", "equipmentUI")]
 script = ExtResource("6_pbq28")
 movementUI = NodePath("MovementUI")
 battleUI = NodePath("BattleUI")
 healthUI = NodePath("PartyHealth")
 experienceUI = NodePath("ExperienceUI")
 inventoryUI = NodePath("InventoryUI")
+equipmentUI = NodePath("PartyEquipmentUI")
 
 [node name="MovementUI" parent="UILayer" instance=ExtResource("1_orfka")]
 
@@ -74,6 +76,8 @@ offset_bottom = 0.239929
 visible = false
 
 [node name="InventoryUI" parent="UILayer" instance=ExtResource("10_0gu7r")]
+
+[node name="PartyEquipmentUI" parent="UILayer" instance=ExtResource("15_30d3v")]
 
 [node name="UIOverlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("partySelectorUI")]
 layer = 2

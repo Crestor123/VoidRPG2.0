@@ -5,3 +5,4 @@ extends CanvasLayer
 @export var healthUI : Node
 @export var experienceUI : Node
 @export var inventoryUI : Node
+@export var equipmentUI : Node

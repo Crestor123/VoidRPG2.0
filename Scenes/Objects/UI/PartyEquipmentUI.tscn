@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3saj7385r4ij"]
+
+[ext_resource type="PackedScene" uid="uid://dnvsp255trepw" path="res://Scenes/Objects/UI/PartySelectorUI.tscn" id="1_6l623"]
+[ext_resource type="Script" path="res://Scenes/Objects/UI/PartyEquipmentUI.gd" id="1_58awy"]
+[ext_resource type="PackedScene" uid="uid://df3hvivqx3w64" path="res://Scenes/Objects/UI/ItemPopupUI.tscn" id="3_hth2u"]
+
+[node name="PartyEquipmentUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_58awy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 426)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PartySelectorUI" parent="VBoxContainer/ColorRect" instance=ExtResource("1_6l623")]
+layout_mode = 1
+
+[node name="ItemPopupUI" parent="." instance=ExtResource("3_hth2u")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

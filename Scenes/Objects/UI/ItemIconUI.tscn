@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8ip4xc8x5m5s"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/UI/ItemUI.gd" id="1_y8i7w"]
-[ext_resource type="Texture2D" uid="uid://c7fq8gigavlh0" path="res://Assets/Sprites/Bag.png" id="2_vyj4p"]
+[ext_resource type="Texture2D" uid="uid://d2rnkpu5mcjox" path="res://Assets/Sprites/EmptySlot.png" id="2_e7ru1"]
 
 [node name="ItemIconUI" type="Control"]
 custom_minimum_size = Vector2(80, 80)
@@ -26,7 +26,7 @@ offset_bottom = 40.0
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("2_vyj4p")
+texture = ExtResource("2_e7ru1")
 stretch_mode = 4
 
 [node name="Button" type="Button" parent="CenterContainer/TextureRect"]

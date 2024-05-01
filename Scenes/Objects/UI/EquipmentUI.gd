@@ -33,4 +33,5 @@ func initialize(equipmentList : Node, item : EquipmentNode = null):
 	pass
 
 func equipmentButton(data):
+	print(data)
 	equipmentSelected.emit(data)

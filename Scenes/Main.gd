@@ -45,6 +45,8 @@ func connectUI():
 	UILayer.inventoryUI.use.connect(partySelector)
 	UILayer.inventoryUI.cancelUse.connect(closeOverlay)
 	
+	UILayer.equipmentUI.buttonPressed.connect(buttonPressed)
+	
 	UILayer.healthUI.initialize(Party.get_children())
 	pass
 	
@@ -54,6 +56,10 @@ func buttonPressed(button : String):
 		#Open the inventory
 		swapUI(UILayer.inventoryUI)
 		UILayer.inventoryUI.fillItems(Party.get_child(0).inventory)
+	if button == "equipment":
+		#Open the equipment menu
+		swapUI(UILayer.equipmentUI)
+		UILayer.equipmentUI.initialize(Party)
 	if button == "back":
 		if prevUILayer != null: swapUI(prevUILayer)
 		else: swapUI(UILayer.movementUI)
@@ -114,8 +120,8 @@ func closeOverlay():
 	UIOverlay.cancel()
 	pass
 
-func partySelector(caller : Node):
+func partySelector(caller : Node, equipMode : bool = false):
 	UIOverlay.currentOverlay = UIOverlay.partySelectorUI
-	UIOverlay.partySelectorUI.initialize(Party.get_children(), caller)
+	UIOverlay.partySelectorUI.initialize(Party.get_children(), caller, equipMode)
 	UIOverlay.partySelectorUI.visible = true
 	pass

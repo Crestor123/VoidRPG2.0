@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="PartyMember" load_steps=4 format=3 uid="uid://d3vw40hqgsnq5"]
+[gd_resource type="Resource" script_class="PartyMember" load_steps=5 format=3 uid="uid://d3vw40hqgsnq5"]
 
 [ext_resource type="Script" path="res://Resources/Templates/PartyMember.gd" id="1_3s4qt"]
 [ext_resource type="Resource" uid="uid://ciy0ieg3mqgag" path="res://Resources/Abilities/Attack.tres" id="1_op21a"]
 [ext_resource type="Resource" uid="uid://n5bei5ouqvs2" path="res://Resources/Abilities/Defend.tres" id="2_7c6s2"]
+[ext_resource type="Resource" uid="uid://bspj0vddrx7gn" path="res://Resources/Items/TestRing2.tres" id="3_px0mc"]
 
 [resource]
 script = ExtResource("1_3s4qt")
@@ -17,7 +18,7 @@ intelligence = 2
 wisdom = 2
 charisma = 2
 abilities = Array[Resource]([ExtResource("1_op21a"), ExtResource("2_7c6s2")])
-inventory = Array[Resource]([])
+inventory = Array[Resource]([ExtResource("3_px0mc")])
 resistances = {
 "acid": 0,
 "air": 0,

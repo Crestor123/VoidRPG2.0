@@ -56,20 +56,26 @@ func useItem():
 	else: print("Selected item is null")
 	pass
 
-func partyMemberSelected(partyMember : Node, slot : String = ""):
+func partyMemberSelected(partyMember : Node):
 	var used : bool
-	if slot == "":
+	if selectedItem is ConsumableNode:
 		#The item is a consumable
 		used = inventory.useItem(selectedItem, partyMember)
-	else:
-		#The item is equipment
-		used = partyMember.equipment.equip(selectedItem, slot)
-		closePopup()
 	if used:
 		fillItems(inventory)
 	else:
 		#Popup: item could not be used
 		pass
+	pass
+	
+func equipmentSelected(partyMember : Node, equipment : EquipmentNode, equipmentSlot : String):
+	var equipped = false
+	if selectedItem is EquipmentNode:
+		equipped = partyMember.equipment.equip(selectedItem, equipmentSlot)
+		closePopup()
+		
+	if equipped:
+		fillItems(inventory)
 	pass
 
 func closePopup():
