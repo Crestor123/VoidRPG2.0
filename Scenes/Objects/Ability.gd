@@ -23,7 +23,7 @@ extends Node
 	"crystal", "wood", "air", "sound", "motion", "void", "water", "cold",
 	"acid", "darkness", "mind", "soul", "flesh", "time") var element : String
 
-@export var additionalEffects: Dictionary
+@export var additionalEffects: Array
 
 func initialize():
 	if data != null:

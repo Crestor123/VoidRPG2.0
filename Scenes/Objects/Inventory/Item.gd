@@ -10,7 +10,7 @@ class_name ItemNode
 
 @export var cost : int
 
-@export var additionalEffects : Dictionary
+@export var additionalEffects : Array
 
 @export var stackable : bool = false
 @export var quantity = 1

@@ -23,4 +23,4 @@ class_name Item
 	
 #@export var bonus : int
 
-@export var additionalEffects : Dictionary
+@export var additionalEffects : Array[Script]

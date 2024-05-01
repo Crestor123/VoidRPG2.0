@@ -8,12 +8,12 @@ script = ExtResource("1_bxjl2")
 slot = "body"
 bonuses = {
 "charisma": 0,
-"constitution": 0,
+"constitution": 3,
 "dexterity": 0,
 "health": 0,
 "intelligence": 0,
 "mana": 0,
-"strength": 3,
+"strength": 0,
 "wisdom": 0
 }
 resistances = {

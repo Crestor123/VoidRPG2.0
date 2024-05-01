@@ -25,4 +25,4 @@ class_name Ability
 
 @export var prerequisites : Dictionary
 
-@export var additionalEffects : Dictionary
+@export var additionalEffects : Array[Script]

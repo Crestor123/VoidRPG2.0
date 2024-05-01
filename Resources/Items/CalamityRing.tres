@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=4 format=3 uid="uid://bq6snf8xr7va5"]
+
+[ext_resource type="Texture2D" uid="uid://be4gw0ymtrdkq" path="res://Assets/Sprites/Close.png" id="1_08bya"]
+[ext_resource type="Script" path="res://Scenes/AdditionalEffects/DoubleDamage.gd" id="1_gh1tc"]
+[ext_resource type="Script" path="res://Resources/Templates/Equipment.gd" id="1_ivw1g"]
+
+[resource]
+script = ExtResource("1_ivw1g")
+slot = "ring"
+bonuses = {
+"charisma": 0,
+"constitution": 0,
+"dexterity": 0,
+"health": 0,
+"intelligence": 0,
+"mana": 0,
+"strength": 0,
+"wisdom": 0
+}
+resistances = {
+"acid": 0,
+"air": 0,
+"cold": 0,
+"crystal": 0,
+"darkness": 0,
+"earth": 0,
+"electricity": 0,
+"fire": 0,
+"flesh": 0,
+"heat": 0,
+"light": 0,
+"metal": 0,
+"mind": 0,
+"motion": 0,
+"soul": 0,
+"sound": 0,
+"time": 0,
+"void": 0,
+"water": 0,
+"wood": 0
+}
+name = "Calamity Ring"
+description = "Doubles all incoming damage."
+icon = ExtResource("1_08bya")
+cost = 0
+stackable = false
+additionalEffects = [ExtResource("1_gh1tc")]
