@@ -17,6 +17,8 @@ func move(direction : String):
 	
 	#Check the grid space that the player is moving into using a raycast
 	if direction == "up" or direction == "down" or direction == "select":
+		if direction == "down":
+			Ray.target_position.z = Ray.target_position.z * -1
 		Ray.force_raycast_update()
 		if Ray.is_colliding():
 			collision = Ray.get_collider()
@@ -24,6 +26,11 @@ func move(direction : String):
 				collision = collision.get_parent()
 			select(collision)
 			return
+		if direction == "down":
+			Ray.target_position.z = Ray.target_position.z * -1
+		
+			
+
 	
 	if direction == "up":
 		var tween = create_tween()

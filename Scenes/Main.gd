@@ -18,6 +18,7 @@ var interactingEntity : Node = null
 
 func _ready():
 	for item in Entities.get_children():
+		item.initialize(item.global_position, item.rotation)
 		item.interacting.connect(entityInteract)
 	
 	for member in Party.get_children():
@@ -72,6 +73,16 @@ func entityInteract(ID, type, data):
 	if type == "enemy":
 		#Start the battle using the enemy data
 		enterBattle(data)
+	if type == "door":
+		#Check if the door requires an item (from data)
+		if data:
+			print("Required item: ")
+		#Check if the player has the required item
+			#Show popup if not
+		#Use the item (confirm)
+		#Open the door
+		interactingEntity.confirmInteract()
+		pass
 	pass
 
 func enterBattle(enemyData):

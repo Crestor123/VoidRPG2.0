@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bjqrsltclqk08"]
+[gd_scene load_steps=25 format=3 uid="uid://bjqrsltclqk08"]
 
 [ext_resource type="PackedScene" uid="uid://cs4mh41ray2l4" path="res://Scenes/Actors/Player.tscn" id="1_02n11"]
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_mmrmv"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Scenes/UIOverlay.gd" id="12_g7dam"]
 [ext_resource type="PackedScene" uid="uid://dnvsp255trepw" path="res://Scenes/Objects/UI/PartySelectorUI.tscn" id="13_ckd8t"]
 [ext_resource type="PackedScene" uid="uid://b3saj7385r4ij" path="res://Scenes/Objects/UI/PartyEquipmentUI.tscn" id="15_30d3v"]
+[ext_resource type="Texture2D" uid="uid://b6nuy5x0u0hdb" path="res://Assets/Sprites/Door.png" id="21_bf1li"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dda42"]
 albedo_color = Color(0.247059, 0.247059, 0.247059, 1)
@@ -27,6 +28,8 @@ albedo_color = Color(0.247059, 0.247059, 0.247059, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_2ucn6"]
 material = SubResource("StandardMaterial3D_dda42")
 size = Vector2(20, 20)
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_yhlrf"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_mmrmv")
@@ -94,6 +97,7 @@ mesh = SubResource("PlaneMesh_2ucn6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.1, 1)
 
 [node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_yhlrf")
 
 [node name="Entities" type="Node" parent="."]
 
@@ -106,3 +110,8 @@ type = "enemy"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 1)
 data = Array[Resource]([ExtResource("6_5sgyr")])
 type = "enemy"
+
+[node name="Entity3" parent="Entities" instance=ExtResource("5_d32gq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -1)
+preInteractSprites = Array[Resource]([ExtResource("21_bf1li")])
+type = "door"
