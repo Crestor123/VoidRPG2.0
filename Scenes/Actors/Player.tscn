@@ -6,6 +6,8 @@
 script = ExtResource("1_mh6lr")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+fov = 120.0
+far = 500.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 

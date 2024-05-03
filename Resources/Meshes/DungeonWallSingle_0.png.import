@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://55niu28a63is"
-path="res://.godot/imported/Earth.png-37281bff0d2fecac587190ea37127cef.ctex"
+uid="uid://cfej1ul4sj5tw"
+path="res://.godot/imported/DungeonWallSingle_0.png-1cb231db10740496624f0b91e6e1605d.ctex"
 metadata={
 "vram_texture": false
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://Assets/Sprites/Earth.png"
-dest_files=["res://.godot/imported/Earth.png-37281bff0d2fecac587190ea37127cef.ctex"]
+source_file="res://Resources/Meshes/DungeonWallSingle_0.png"
+dest_files=["res://.godot/imported/DungeonWallSingle_0.png-1cb231db10740496624f0b91e6e1605d.ctex"]
 
 [params]
 

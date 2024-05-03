@@ -20,16 +20,16 @@
 [ext_resource type="Script" path="res://Scenes/UIOverlay.gd" id="12_g7dam"]
 [ext_resource type="PackedScene" uid="uid://dnvsp255trepw" path="res://Scenes/Objects/UI/PartySelectorUI.tscn" id="13_ckd8t"]
 [ext_resource type="PackedScene" uid="uid://b3saj7385r4ij" path="res://Scenes/Objects/UI/PartyEquipmentUI.tscn" id="15_30d3v"]
+[ext_resource type="MeshLibrary" uid="uid://k63q1pin2fqy" path="res://Resources/Meshes/DungeonTiles.tres" id="19_ulfox"]
 [ext_resource type="Texture2D" uid="uid://b6nuy5x0u0hdb" path="res://Assets/Sprites/Door.png" id="21_bf1li"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dda42"]
+transparency = 1
 albedo_color = Color(0.247059, 0.247059, 0.247059, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2ucn6"]
 material = SubResource("StandardMaterial3D_dda42")
 size = Vector2(20, 20)
-
-[sub_resource type="MeshLibrary" id="MeshLibrary_yhlrf"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_mmrmv")
@@ -94,24 +94,28 @@ visible = false
 mesh = SubResource("PlaneMesh_2ucn6")
 
 [node name="Player" parent="." instance=ExtResource("1_02n11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.05, 1)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = SubResource("MeshLibrary_yhlrf")
+mesh_library = ExtResource("19_ulfox")
+data = {
+"cells": PackedInt32Array(65535, 65535, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 65535, 0, 0, 65535, 1, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Entities" type="Node" parent="."]
 
 [node name="Entity" parent="Entities" instance=ExtResource("5_d32gq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -3)
 data = Array[Resource]([ExtResource("6_5sgyr"), ExtResource("6_5sgyr")])
 type = "enemy"
 
 [node name="Entity2" parent="Entities" instance=ExtResource("5_d32gq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.8, 1)
 data = Array[Resource]([ExtResource("6_5sgyr")])
 type = "enemy"
 
 [node name="Entity3" parent="Entities" instance=ExtResource("5_d32gq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 preInteractSprites = Array[Resource]([ExtResource("21_bf1li")])
 type = "door"

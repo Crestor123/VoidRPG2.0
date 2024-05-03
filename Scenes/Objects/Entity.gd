@@ -29,6 +29,8 @@ func initialize(newPosition : Vector3 = Vector3.ZERO, newRotation : Vector3 = Ve
 			if !billboard:
 				newMesh.mesh.material.set_cull_mode(2)	#Disable culling
 			newMesh.mesh.material.set_billboard_mode(billboard)
+			#newMesh.mesh.material.transparency = 0
+			newMesh.mesh.material.render_priority = 1
 		return
 		
 		pass
@@ -41,6 +43,7 @@ func initialize(newPosition : Vector3 = Vector3.ZERO, newRotation : Vector3 = Ve
 		add_child(newMesh)
 		newMesh.mesh.material.albedo_texture = item.sprite
 		newMesh.mesh.material.set_billboard_mode(billboard)
+		newMesh.mesh.material.render_priority = 1
 		pass
 	pass
 

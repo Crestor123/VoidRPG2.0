@@ -12,6 +12,9 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="QuadMesh_5b5c6"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_gpdsc")
+size = Vector2(2, 2)
 
 [node name="EntityMesh" type="MeshInstance3D"]
+sorting_offset = 1.0
+cast_shadow = 0
 mesh = SubResource("QuadMesh_5b5c6")
