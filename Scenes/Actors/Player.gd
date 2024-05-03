@@ -24,7 +24,8 @@ func move(direction : String):
 			collision = Ray.get_collider()
 			if collision.get_parent():
 				collision = collision.get_parent()
-			select(collision)
+			if collision.has_method("select"):
+				select(collision)
 			return
 		if direction == "down":
 			Ray.target_position.z = Ray.target_position.z * -1

@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://Scenes/UIOverlay.gd" id="12_g7dam"]
 [ext_resource type="PackedScene" uid="uid://dnvsp255trepw" path="res://Scenes/Objects/UI/PartySelectorUI.tscn" id="13_ckd8t"]
 [ext_resource type="PackedScene" uid="uid://b3saj7385r4ij" path="res://Scenes/Objects/UI/PartyEquipmentUI.tscn" id="15_30d3v"]
-[ext_resource type="MeshLibrary" uid="uid://k63q1pin2fqy" path="res://Resources/Meshes/DungeonTiles.tres" id="19_ulfox"]
+[ext_resource type="MeshLibrary" uid="uid://ed1i2as2eooe" path="res://Resources/Meshes/DungeonTiles.tres" id="19_ulfox"]
 [ext_resource type="Texture2D" uid="uid://b6nuy5x0u0hdb" path="res://Assets/Sprites/Door.png" id="21_bf1li"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dda42"]

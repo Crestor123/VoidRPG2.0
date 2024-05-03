@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://fvmf15tn8gfm"]
+[gd_scene load_steps=5 format=3 uid="uid://fvmf15tn8gfm"]
 
 [ext_resource type="Material" uid="uid://dk4y0gaokocfc" path="res://Resources/Meshes/DungeonWall.tres" id="1_m5y3v"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nhij6"]
 material = ExtResource("1_m5y3v")
 size = Vector3(2, 2, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rormm"]
+data = PackedVector3Array(-1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3vt05"]
 material = ExtResource("1_m5y3v")
@@ -14,6 +17,11 @@ size = Vector3(1, 2, 2)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_nhij6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rormm")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_3vt05")
