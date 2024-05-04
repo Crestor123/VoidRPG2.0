@@ -41,6 +41,8 @@ func initialize(newPosition : Vector3 = Vector3.ZERO, newRotation : Vector3 = Ve
 		#The meshes should rotate with respect to the player
 		var newMesh = entityMesh.instantiate()
 		add_child(newMesh)
+		#Enemies and other objects are reduced in size to render properly
+		newMesh.mesh.size = (Vector2(1.5,1.5))
 		newMesh.mesh.material.albedo_texture = item.sprite
 		newMesh.mesh.material.set_billboard_mode(billboard)
 		newMesh.mesh.material.render_priority = 1
