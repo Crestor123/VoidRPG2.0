@@ -6,7 +6,7 @@ extends Node3D
 @onready var Battle = $Battle
 @onready var Party = $PartyMembers
 @onready var Inventory = $InventoryComponent
-@onready var Grid = $GridMap
+@onready var Grid = $DungeonWalls
 @onready var Entities = $Entities
 @onready var AbilityData = $AbilityDatabase
 
@@ -17,6 +17,9 @@ var currentOverlay : Node = null
 var interactingEntity : Node = null
 
 func _ready():
+	Grid.initialize(11, 11)
+	Grid.generateTiles()
+	
 	for item in Entities.get_children():
 		item.initialize(item.global_position, item.rotation)
 		item.interacting.connect(entityInteract)

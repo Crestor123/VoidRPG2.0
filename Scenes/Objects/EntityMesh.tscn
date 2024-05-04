@@ -7,7 +7,7 @@ resource_local_to_scene = true
 transparency = 1
 albedo_texture = ExtResource("1_xkme7")
 texture_filter = 0
-billboard_mode = 1
+billboard_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_5b5c6"]
 resource_local_to_scene = true
