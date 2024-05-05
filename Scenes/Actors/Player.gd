@@ -8,6 +8,7 @@ var tile_size = 2
 signal interacting
 
 func move(direction : String):
+	Ray.target_position.z = -2
 	print("moving ", direction)
 	
 	var collision
@@ -27,8 +28,6 @@ func move(direction : String):
 			if collision.has_method("interact"):
 				select(collision)
 			return
-		if direction == "down":
-			Ray.target_position.z = Ray.target_position.z * -1
 		
 			
 

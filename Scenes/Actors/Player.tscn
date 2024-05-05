@@ -6,11 +6,11 @@
 script = ExtResource("1_mh6lr")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0.35, 1.5)
+transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0.35, 1.4)
 fov = 60.0
 far = 500.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, -2.1)
+target_position = Vector3(0, 0, -2)
