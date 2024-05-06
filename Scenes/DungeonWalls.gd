@@ -4,6 +4,7 @@ class dungeonNode:
 	var visited : bool = false
 	var connections : Array[dungeonNode] = []
 	var wall : bool = false
+	var coordinates : Vector2
 
 var height : int
 var width : int
@@ -28,6 +29,7 @@ func initialize(width : int, height : int):
 				#Interior walls
 				dnode.visited = false
 				dnode.wall = true
+			dnode.coordinates = Vector2(i * 2 + 1, j * 2 + 1)
 			maze.append(dnode)
 			
 	generateMaze(1, 1)
