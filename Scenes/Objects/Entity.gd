@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var staticBody = $StaticBody3D
 @onready var collision = $StaticBody3D/CollisionShape3D
-@onready var mesh = $EntityMesh
+#@onready var mesh = $EntityMesh
 
 @export var entityMesh : PackedScene
 @export var data : Array[Resource]

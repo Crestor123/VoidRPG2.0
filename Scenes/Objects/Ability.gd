@@ -12,7 +12,7 @@ extends Node
 @export_enum ("health", "mana", "strength", "dexterity", "constitution", 
 	"intelligence", "wisdom", "charisma" ) var mainStat : String
 @export_enum ("health", "mana", "strength", "dexterity", "constitution", 
-	"intelligence", "wisdom", "charisma" ) var targetStat : String
+	"intelligence", "wisdom", "charisma", "taunt" ) var targetStat : String
 	
 @export var cost : int = 0
 @export var baseDamage : int

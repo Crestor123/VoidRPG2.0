@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="PartyMember" load_steps=8 format=3 uid="uid://dfwyi62eual2"]
+[gd_resource type="Resource" script_class="PartyMember" load_steps=9 format=3 uid="uid://dfwyi62eual2"]
 
 [ext_resource type="Script" path="res://Resources/Templates/PartyMember.gd" id="1_06604"]
 [ext_resource type="Resource" uid="uid://ciy0ieg3mqgag" path="res://Resources/Abilities/Attack.tres" id="1_lpp1x"]
 [ext_resource type="Resource" uid="uid://n5bei5ouqvs2" path="res://Resources/Abilities/Defend.tres" id="2_ly0so"]
 [ext_resource type="Resource" uid="uid://coyg20o5pdrsr" path="res://Resources/Items/HealthPotion.tres" id="3_0foxm"]
+[ext_resource type="Resource" uid="uid://dnu20cxqbjruk" path="res://Resources/Abilities/Taunt.tres" id="3_2u3me"]
 [ext_resource type="Resource" uid="uid://dna0pr5xl0erf" path="res://Resources/Items/LeatherArmor.tres" id="4_cq67y"]
 [ext_resource type="Texture2D" uid="uid://vpp1ebp8yo7a" path="res://icon.svg" id="4_y1m3n"]
 [ext_resource type="Resource" uid="uid://cxt2ehgvkkkq2" path="res://Resources/Items/TestRing.tres" id="5_g3yon"]
@@ -21,7 +22,7 @@ constitution = 2
 intelligence = 2
 wisdom = 2
 charisma = 2
-abilities = Array[Resource]([ExtResource("1_lpp1x"), ExtResource("2_ly0so")])
+abilities = Array[Resource]([ExtResource("1_lpp1x"), ExtResource("2_ly0so"), ExtResource("3_2u3me")])
 inventory = Array[Resource]([ExtResource("4_cq67y"), ExtResource("5_g3yon"), ExtResource("3_0foxm"), ExtResource("3_0foxm")])
 resistances = {
 "acid": 0,

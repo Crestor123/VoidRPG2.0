@@ -20,10 +20,12 @@ var isActive : bool = false
 var alive : bool = true
 var resource : Resource
 
-var targets = [Node]
-var allies = [Node]
+var targets : Array[Node]
+var aggro : Array[float]
+var allies : Array[Node]
 
 func initialize(setResource : Resource = null):
+	
 	if setResource != null:
 		print("Resource for ", setResource.name, " given")
 		resource = setResource
@@ -31,6 +33,12 @@ func initialize(setResource : Resource = null):
 		stats.initialize(resource)
 		stats.healthZero.connect(die)
 		abilities.initialize(resource.abilities)
+	
+	aggro.resize(targets.size())
+	for i in range(targets.size()):
+		#Set the aggro weights for each target
+		#+1 aggro == +1% chance to attack target
+		aggro[i] = float(100.0 / targets.size())
 	pass
 	
 func startTurn(turnCount : int):
@@ -53,10 +61,27 @@ func chooseAbility(turnCount : int) -> Node:
 	return (abilities.get_child((turnCount % abilities.get_child_count())))
 
 func chooseTarget(ability : Node):
-	if ability.target != "self":
-		return targets[0]
-	pass
+	#Using the aggro array, select a target
+	if ability.target == "self": return self
+	if targets.size() == 1: return targets[0]
 	
+	var rand = randf_range(1, 100)
+	var acc = 0
+	for i in range(aggro.size()):
+		acc += aggro[i]
+		if acc >= rand:
+			return targets[i]
+	
+	pass
+
+func updateAggro(target : Node, value : int):
+	for i in range(targets.size()):
+		if targets[i] == target:
+			aggro[i] += value
+		else:
+			aggro[i] -= (value / (targets.size() - 1)) 
+	pass
+
 func die():
 	#print(self, " is dead")
 	alive = false

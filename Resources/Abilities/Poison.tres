@@ -18,4 +18,4 @@ multiplier = 0.5
 turns = 3
 element = "earth"
 prerequisites = {}
-additionalEffects = {}
+additionalEffects = Array[Script]([])

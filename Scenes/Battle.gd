@@ -63,12 +63,12 @@ func battle():
 		if currentBattler in enemyList:
 			await currentBattler.turnFinished
 
+		battleUI.hideAbilities()
 		timer.wait_time = 1
 		timer.start()
 		await timer.timeout
 	
 		print("Ending turn")
-		battleUI.hideAbilities()
 		turnCount += 1
 	
 	#When battle is over, emit a signal back to main

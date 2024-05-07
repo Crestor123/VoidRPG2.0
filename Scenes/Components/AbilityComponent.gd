@@ -45,6 +45,6 @@ func useAbility(ability, target):
 		"attack":
 			target.stats.takeDamage(damage, ability.element)
 		"buff":
-			target.stats.addBuff(ability.abilityName, ability.targetStat, damage, ability.turns, ability.element)
+			target.stats.addBuff(parent, ability, damage)
 		"debuff":
-			target.stats.addBuff(ability.abilityName, ability.targetStat, -damage, ability.turns, ability.element)
+			target.stats.addBuff(parent, ability, -damage)

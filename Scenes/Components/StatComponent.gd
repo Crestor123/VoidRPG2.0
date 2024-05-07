@@ -120,11 +120,11 @@ func takeDamage(value : int , type : String):
 	parent.updateHealthBar.emit(getHealthPercent())
 	pass
 	
-func addBuff(source : String, mainStat : String, value : int, turns : int, element : String):
+func addBuff(source : Node, ability: Node, value : int):
 	var newBuff = buffObject.instantiate()
 	add_child(newBuff)
 	
-	newBuff.initialize(source, mainStat, value, turns, element)
+	newBuff.initialize(source, ability, value)
 	pass
 	
 func tickBuffs():

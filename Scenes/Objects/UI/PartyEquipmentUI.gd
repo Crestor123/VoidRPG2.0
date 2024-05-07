@@ -2,7 +2,7 @@ extends Control
 
 @onready var partySelector = $VBoxContainer/ColorRect/PartySelectorUI
 @onready var itemPopup = $ItemPopupUI
-@onready var backButton = $BackButton
+@onready var backButton = $VBoxContainer/BackButton
 
 var party : Node = null
 var selectedParty : Node = null

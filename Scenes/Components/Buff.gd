@@ -1,8 +1,9 @@
 extends Node
 
-@export var source : String
+@export var source : Node
+@export var ability : Node
 @export_enum ("health", "mana", "strength", "dexterity", "constitution", 
-	"intelligence", "wisdom", "charisma" ) var mainStat : String
+	"intelligence", "wisdom", "charisma", "taunt" ) var mainStat : String
 #Positive values denote buffs, negative values are debuffs
 @export var value : int
 @export var turns : int
@@ -13,15 +14,19 @@ extends Node
 	
 var target : Node = null
 	
-func initialize(source : String, mainStat : String, value : int, turns : int, element : String):
+func initialize(source : Node, ability: Node, value : int):
 	self.source = source
-	self.mainStat = mainStat
+	self.ability = ability
+	self.mainStat = ability.targetStat
 	self.value = value
-	self.turns = turns
-	self.element = element
+	self.turns = ability.turns
+	self.element = ability.element
 	target = get_parent()
 	
-	if mainStat != "health" && mainStat != "mana":
+	if mainStat == "taunt":
+		target.parent.updateAggro(source, -value)
+	
+	elif mainStat != "health" && mainStat != "mana":
 		print("adding ", value, " to ", mainStat)
 		target.tempStats[mainStat] += value
 
@@ -39,7 +44,9 @@ func tick():
 	
 func expire():
 	#When the buff's turn counter reaches zero, remove the buff's effects
-	if mainStat != "health" and mainStat != "mana":
+	if mainStat == "taunt":
+		target.parent.updateAggro(source, value)
+	elif mainStat != "health" and mainStat != "mana":
 		target.tempStats[mainStat] -= value
 		
 	queue_free()
