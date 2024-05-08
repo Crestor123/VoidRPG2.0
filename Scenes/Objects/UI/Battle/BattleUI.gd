@@ -60,6 +60,7 @@ func updateAbilities(abilityComponent : Node):
 	
 	#Populate the list of abilities with the abilities given
 	for item in abilityComponent.get_children():
+		if item.type == "passive": continue
 		print("creating button for ", item.abilityName)
 		var ability = abilityObject.instantiate()
 		abilityContainer.add_child(ability)

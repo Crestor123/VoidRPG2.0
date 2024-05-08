@@ -21,6 +21,7 @@ func addAbility(abilityPath : String):
 	newAbility.data = loadAbility
 	newAbility.initialize()
 
+
 func useAbility(ability, target):
 	if ability not in get_children():
 		print("Error: no such ability")

@@ -31,6 +31,6 @@ func spawnEnemy(cell):
 	newEntity.data.append(load(enemyPath + "/" + file))
 	newEntity.type = "enemy"
 	print(cell.coordinates)
-	newEntity.global_position = Vector3(cell.coordinates.x, 0.80, cell.coordinates.y)
+	newEntity.global_position = Vector3(cell.coordinates.x, 0.75, cell.coordinates.y)
 		#file = enemyDir.get_next()
 	pass

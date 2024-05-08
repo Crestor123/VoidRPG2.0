@@ -41,4 +41,11 @@ func initialize():
 		element = data.element
 		additionalEffects = data.additionalEffects
 		
+		if type == "passive":
+			if target == "self":
+				if get_parent().parent.stats: get_parent().parent.stats.tempStats[targetStat] += baseDamage
+			elif target == "party":
+				for member in get_parent().parent.get_parent().get_children():
+					if member.stats: member.stats.tempStats[targetStat] += baseDamage
+		
 		print("New ability ", abilityName, " created")

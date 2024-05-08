@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://bx4y1rx2byylm"]
+
+[ext_resource type="Script" path="res://Resources/Templates/Ability.gd" id="1_164dt"]
+[ext_resource type="Texture2D" uid="uid://55niu28a63is" path="res://Assets/Sprites/Earth.png" id="1_t4402"]
+
+[resource]
+script = ExtResource("1_164dt")
+name = "Fortify"
+description = ""
+icon = ExtResource("1_t4402")
+type = "passive"
+target = "party"
+mainStat = "constitution"
+targetStat = "constitution"
+cost = 0
+baseDamage = 1
+multiplier = 1.0
+turns = 0
+element = ""
+prerequisites = {}
+additionalEffects = Array[Script]([])

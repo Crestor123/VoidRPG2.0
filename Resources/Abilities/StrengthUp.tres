@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://2kshlcwfhpdv"]
+
+[ext_resource type="Texture2D" uid="uid://55niu28a63is" path="res://Assets/Sprites/Earth.png" id="1_60402"]
+[ext_resource type="Script" path="res://Resources/Templates/Ability.gd" id="1_hmni7"]
+
+[resource]
+script = ExtResource("1_hmni7")
+name = "Strength Up"
+description = ""
+icon = ExtResource("1_60402")
+type = "passive"
+target = "self"
+mainStat = "constitution"
+targetStat = "strength"
+cost = 0
+baseDamage = 2
+multiplier = 1.0
+turns = 0
+element = "earth"
+prerequisites = {}
+additionalEffects = Array[Script]([])
